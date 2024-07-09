@@ -15,7 +15,7 @@ function Na() {
 
      <Navbar  expand="lg">
 
-        <Navbar.Brand href="/">DNK</Navbar.Brand>
+        <Navbar.Brand href="/e-commerce">DNK</Navbar.Brand>
 
           <Nav className="me-auto">
           <div className='links'>
