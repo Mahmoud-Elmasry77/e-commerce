@@ -24,7 +24,7 @@ function Footer(){
     }
     const submit = (e)=>{
         e.preventDefault();
-        if(!valid){
+        if(!valid && e.target.value === " "){
             return false
         }else{
             return true
@@ -88,11 +88,11 @@ function Footer(){
 
                     <Col lg={3} md={3} sm={12}>
                         <div className="form" >
-                            <form action="p.php" method="get" onSubmit={submit}>
+                            <form action="" method="get" onSubmit={submit}>
                             <label>Subscribe</label>
                             <input  onChange={chang} type="text" placeholder="Your email address..." className={!valid && "valid"}></input>
                                 <p  className={!valid ? "p" : ""}>email not valid</p>
-                            <button className="p-3">subscribe</button>
+                            <input type="submit" className="p-3" value="subscribe"></input>
                             </form>
                         </div>
                     </Col> 
