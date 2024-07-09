@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './footer.css';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookF, faGoogle, faInstagram, faXTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import axios from "axios";
 
 function Footer(){
     return(
@@ -64,7 +65,7 @@ function Footer(){
                     </Col>
 
                     <Col lg={3} md={3} sm={12}>
-                        <div className="form">
+                        <div className="form" >
                             <form action="" method="">
                             <label>Subscribe</label>
                             <input type="email" placeholder="Your email address..."></input>

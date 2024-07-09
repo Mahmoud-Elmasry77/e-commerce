@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGlobe, faLock, faShirt, faTag } from "@fortawesome/free-solid-svg-icons";
+import { faBagShopping, faGlobe, faLock, faShirt, faTag } from "@fortawesome/free-solid-svg-icons";
 import { faStar} from "@fortawesome/free-regular-svg-icons";
 import "./featured.css";
 import { Col, Container, Row } from "react-bootstrap";
@@ -9,7 +9,14 @@ import { Link } from "react-router-dom";
 import sportShose from '../src/imges/sports-shoe3-300x300.jpg'
 import axios from "axios";
 function Featured(){
-                    
+              const [show , setshow] = useState(false);
+              
+              const spanShow = ()=>{
+                    setshow(!show)
+              }
+              const spanHid = ()=>{
+                setshow(false)
+              }
     return(
         <div className="featured">
             {/* Start product*/}
@@ -26,182 +33,13 @@ function Featured(){
             <div className="products">
             <Container>
                  <Row>
-                        <Col xs={6} md={4} lg={3} xl={2}>
+                        <Col xs={6} md={4} lg={3}>
                             <div className="link-product">
-                                <Link>
-                                <img src={sportShose}/>
-                                </Link>
-                                <h4>DNK Yellow Shoes</h4>
-                                <p className="type">men</p>
-                                <p className="price">&#36;120</p>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                            </div>
-                        </Col>
-                     
-                        <Col xs={6} md={4} lg={3} xl={2}>
-                            <div className="link-product">
-                                <Link>
-                                <img src={sportShose}/>
-                                </Link>
-                                <h4>DNK Yellow Shoes</h4>
-                                <p className="type">men</p>
-                                <p className="price">&#36;120</p>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                            </div>
-                        </Col>
-
-                        <Col xs={6} md={4} lg={3} xl={2}>
-                            <div className="link-product">
-                                <Link>
-                                <img src={sportShose}/>
-                                </Link>
-                                <h4>DNK Yellow Shoes</h4>
-                                <p className="type">men</p>
-                                <p className="price">&#36;120</p>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                            </div>
-                        </Col>
-
-                        <Col xs={6} md={4} lg={3} xl={2}>
-                            <div className="link-product">
-                                <Link>
-                                <img src={sportShose}/>
-                                </Link>
-                                <h4>DNK Yellow Shoes</h4>
-                                <p className="type">men</p>
-                                <p className="price">&#36;120</p>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                            </div>
-                        </Col>
-
-                        <Col xs={6} md={4} lg={3} xl={2}>
-                            <div className="link-product">
-                                <Link>
-                                <img src={sportShose}/>
-                                </Link>
-                                <h4>DNK Yellow Shoes</h4>
-                                <p className="type">men</p>
-                                <p className="price">&#36;120</p>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                            </div>
-                        </Col>
-
-                        <Col xs={6} md={4} lg={3} xl={2}>
-                            <div className="link-product">
-                                <Link>
-                                <img src={sportShose}/>
-                                </Link>
-                                <h4>DNK Yellow Shoes</h4>
-                                <p className="type">men</p>
-                                <p className="price">&#36;120</p>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                            </div>
-                        </Col>
-
-                        <Col xs={6} md={4} lg={3} xl={2}>
-                            <div className="link-product">
-                                <Link>
-                                <img src={sportShose}/>
-                                </Link>
-                                <h4>DNK Yellow Shoes</h4>
-                                <p className="type">men</p>
-                                <p className="price">&#36;120</p>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                            </div>
-                        </Col>
-                        <Col xs={6} md={4} lg={3} xl={2}>
-                            <div className="link-product">
-                                <Link>
-                                <img src={sportShose}/>
-                                </Link>
-                                <h4>DNK Yellow Shoes</h4>
-                                <p className="type">men</p>
-                                <p className="price">&#36;120</p>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                            </div>
-                        </Col>
-                        <Col xs={6} md={4} lg={3} xl={2}>
-                            <div className="link-product">
-                                <Link>
-                                <img src={sportShose}/>
-                                </Link>
-                                <h4>DNK Yellow Shoes</h4>
-                                <p className="type">men</p>
-                                <p className="price">&#36;120</p>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                            </div>
-                        </Col>
-                        <Col xs={6} md={4} lg={3} xl={2}>
-                            <div className="link-product">
-                                <Link>
-                                <img src={sportShose}/>
-                                </Link>
-                                <h4>DNK Yellow Shoes</h4>
-                                <p className="type">men</p>
-                                <p className="price">&#36;120</p>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                            </div>
-                        </Col>
-                        <Col xs={6} md={4} lg={3} xl={2}>
-                            <div className="link-product">
-                                <Link>
-                                <img src={sportShose}/>
-                                </Link>
-                                <h4>DNK Yellow Shoes</h4>
-                                <p className="type">men</p>
-                                <p className="price">&#36;120</p>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                            </div>
-                        </Col>
-                        <Col xs={6} md={4} lg={3} xl={2}>
-                            <div className="link-product">
-                                <Link>
-                                <img src={sportShose}/>
-                                </Link>
+                                <Link onMouseEnter={spanShow} onMouseLeave={spanHid}><FontAwesomeIcon icon={faBagShopping} size="2x"/></Link> 
+                                <span className={show? "span show-span" : "span"}>Add to Cart</span>
+                                <div>
+                                    <img src={sportShose}/>
+                                </div>
                                 <h4>DNK Yellow Shoes</h4>
                                 <p className="type">men</p>
                                 <p className="price">&#36;120</p>
