@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './footer.css';
@@ -8,6 +8,28 @@ import { faFacebookF, faGoogle, faInstagram, faXTwitter, faYoutube } from "@fort
 import axios from "axios";
 
 function Footer(){
+    const [email, setEmail] = useState("");
+    const [valid , setValid] = useState(true);
+    const validEmail = (email)=>{
+        const reg = /([a-z ||A-Z || 0-9])?\@\w+\.\w{2}/gi;
+        return reg.test(email);
+    };
+    const chang = (e)=>{ 
+        if(e.target.value === ""){
+            return setValid(true)
+        }else{
+        setEmail(e.target.value);
+        setValid(validEmail(e.target.value))
+        }
+    }
+    const submit = (e)=>{
+        e.preventDefault();
+        if(!valid){
+            return false
+        }else{
+            return true
+        }
+    }
     return(
         <div className="footer">
             <div className="footer-links">
@@ -66,9 +88,10 @@ function Footer(){
 
                     <Col lg={3} md={3} sm={12}>
                         <div className="form" >
-                            <form action="" method="">
+                            <form action="p.php" method="get" onSubmit={submit}>
                             <label>Subscribe</label>
-                            <input type="email" placeholder="Your email address..."></input>
+                            <input  onChange={chang} type="text" placeholder="Your email address..." className={!valid && "valid"}></input>
+                                <p  className={!valid ? "p" : ""}>email not valid</p>
                             <button className="p-3">subscribe</button>
                             </form>
                         </div>
