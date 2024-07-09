@@ -54,6 +54,14 @@ p{
     background-color: #ffffff;
     color: #000;
 }
+@media (max-width:540px){
+    header{
+        background-image: url("../src/imges/home-new-bg-free-img.jpg");
+        background-position: center;
+        background-size: cover;
+        background-attachment: unset;
+    }
+}
 @media (max-width:720px){
     h1{
         margin-top: 40%;
