@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/e-commerce/static/css/main.d418b6f0.css",
+    "main.js": "/e-commerce/static/js/main.09dfd073.js",
+    "static/media/banner-03.jpg": "/e-commerce/static/media/banner-03.f1347d60f977c5d1eb9d.jpg",
+    "static/media/home-new-bg-free-img.jpg": "/e-commerce/static/media/home-new-bg-free-img.676c4ece681c03f7607b.jpg",
+    "static/media/3.png": "/e-commerce/static/media/3.8c1ecf65c04a54be6e0c.png",
+    "static/media/men-fashion-free-img.jpg": "/e-commerce/static/media/men-fashion-free-img.3d2d17d5cc31bb45e4dd.jpg",
+    "static/media/women-fashion-free-img.jpg": "/e-commerce/static/media/women-fashion-free-img.a70ab272a56accdab763.jpg",
+    "static/media/4.png": "/e-commerce/static/media/4.75e2d051ae27af63bc96.png",
+    "static/media/footwear-free-img.jpg": "/e-commerce/static/media/footwear-free-img.792ea75bf476820fda49.jpg",
+    "static/media/mango.png": "/e-commerce/static/media/mango.a715d5f842c01eabe1d4.png",
+    "static/media/sports-shoe3-300x300.jpg": "/e-commerce/static/media/sports-shoe3-300x300.1fe6ec28c66099a92290.jpg",
+    "index.html": "/e-commerce/index.html",
+    "static/media/circle-arrow-left-solid.svg": "/e-commerce/static/media/circle-arrow-left-solid.41f46308c44e7cd68d5d.svg",
+    "static/media/circle-arrow-right-solid.svg": "/e-commerce/static/media/circle-arrow-right-solid.db6ba08fd176c90a0dca.svg",
+    "main.d418b6f0.css.map": "/e-commerce/static/css/main.d418b6f0.css.map",
+    "main.09dfd073.js.map": "/e-commerce/static/js/main.09dfd073.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d418b6f0.css",
+    "static/js/main.09dfd073.js"
+  ]
+}
