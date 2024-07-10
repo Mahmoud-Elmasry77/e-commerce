@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState }  from 'react';
+import React, { useCallback, useEffect, useLayoutEffect, useState }  from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
