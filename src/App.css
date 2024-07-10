@@ -1,53 +1,43 @@
 
 .top{
     position: fixed;
+    width: 40px;
+    height: 40px;
     background-color: #2b3988;
     bottom: 20px;
     right: 20px;
     cursor: pointer;
     color: #fff;
     text-align: center;
-    display: none;
-    transition: 1s;
+    visibility: hidden;
+    transition: .5s;
     opacity: 0;
-    z-index: 9999999;
+    z-index: 9;
 }
-.top:hover{
+
+.show-top{
+   opacity: .5;
+   visibility: visible;
+   transition: .5s;
+}
+.show-top:hover{
     opacity: 1;
 }
-.show-top,
-.top svg{
-    margin-top: 20%;
-    font-size: 25px;
-}
-.show-top{
-    position: fixed;
-    width: 45px;
-    height: 45px;
-    display: block;
-    opacity: .5;
-    transition: 1s;
+.top svg, .show-top svg{
+    margin-top: 10px;
+    font-size:20px;
 }
 
 @media (max-width:540px){
     .top{
-        bottom: 10px;
-        right: 10px;
         width: 25px;
         height: 25px;
     }
-    .show-top{
-        width: 25px;
-        height: 25px;
-        opacity: .5;
+    .top svg, .show-top svg{
+        margin-top: 5px;
+        font-size:15px;
     }
-    .show-top,
-    .top svg{
-    margin-top: 17%;
-    font-size: 15px;
 }
-}
-
 ::-webkit-scrollbar{
     background-color: #2b3988;
     width: 10px;

@@ -88,7 +88,7 @@ function Featured(){
                 <Col lg={3} md={6} xs={12}>
                 <div className="offers-icon">
                     <FontAwesomeIcon icon={faShirt} size="3x"></FontAwesomeIcon>
-                    <h5>Worldwide Shipping</h5>
+                    <h5>Best Quality</h5>
                     <p>It elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
                 </div>
                 </Col>
@@ -96,7 +96,7 @@ function Featured(){
                 <Col lg={3} md={6} xs={12}>
                 <div className="offers-icon">
                     <FontAwesomeIcon icon={faLock} size="3x"></FontAwesomeIcon>
-                    <h5>Worldwide Shipping</h5>
+                    <h5>Best Quality</h5>
                     <p>It elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
                 </div>
                 </Col>
@@ -104,7 +104,7 @@ function Featured(){
                 <Col lg={3} md={6} xs={12}>
                 <div className="offers-icon">
                     <FontAwesomeIcon icon={faTag} size="3x"></FontAwesomeIcon>
-                    <h5>Worldwide Shipping</h5>
+                    <h5>Best Quality</h5>
                     <p>It elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
                 </div>
                 </Col>

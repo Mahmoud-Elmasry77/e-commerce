@@ -25,6 +25,7 @@ function Na() {
             <NavLink className="nav-link" to="/men">MEN</NavLink>
             <NavLink className="nav-link" to="/accessories">ACCESSORIES</NavLink>
             </div>
+
             <div className='right-link'>
               <NavLink className="nav-link" to="about">ABOUT</NavLink>
               <NavLink className="nav-link " to="contactus">CONTACTUS</NavLink>
@@ -46,20 +47,19 @@ function Na() {
                 <div className={show? "aside-link" : "show aside-link" }>
                   <NavLink className=" user"  to='user'><FontAwesomeIcon icon={faUser}/></NavLink>
 
-                     <div className='mo-links'>
-                      <NavLink className="xs-links" to="/">EVERYTHING</NavLink>
-                      <NavLink className="xs-links" to="/women">WOMEN</NavLink>
-                      <NavLink className="xs-links" to="/men">MEN</NavLink>
-                      <NavLink className="xs-links" to="/accessories">ACCESSORIES</NavLink>
-                      
-                        <div className='about-us'>
-                        <NavLink className="xs-links" to="about">ABOUT</NavLink>
-                        <NavLink className="xs-links " to="contactus">CONTACTUS</NavLink>
+                      <div className='mo-links'>
+                        <NavLink className="xs-links" to="/">EVERYTHING</NavLink>
+                        <NavLink className="xs-links" to="/women">WOMEN</NavLink>
+                        <NavLink className="xs-links" to="/men">MEN</NavLink>
+                        <NavLink className="xs-links" to="/accessories">ACCESSORIES</NavLink>
+                        
+                          <div className='about-us'>
+                          <NavLink className="xs-links" to="about">ABOUT</NavLink>
+                          <NavLink className="xs-links " to="contactus">CONTACTUS</NavLink>
+                          </div>
                         </div>
-                      </div>
-
-                      <div onClick={saidebar} className={show? "xmark" : "xmark-show"}>
-                        <FontAwesomeIcon  icon={faXmark} />
+                        <div onClick={saidebar} className={show? "xmark" : ""}>
+                          <FontAwesomeIcon  icon={faXmark} />
                         </div>
                  </div>
             </div>
