@@ -112,7 +112,7 @@
   width:90%;
   height: 100vh;
   background-color: #ffffff;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0px;
   overflow: hidden;
@@ -157,13 +157,20 @@
  .xmark svg{
     display: block;
     color: #000;
-    position: absolute;
+    position: fixed;
     top: 20px;
     right: 10px;
     margin-left: -40px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
  }
-
+ .xmark-show{
+  display: none;
+ }
  .about-us{
   margin-top: 40px;
  }
