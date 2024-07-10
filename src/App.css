@@ -1,0 +1,30 @@
+
+.top{
+    
+    background-color: #2b3988;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    color: #fff;
+    text-align: center;
+    visibility: hidden;
+    transition: 1s;
+    opacity: 0;
+    z-index: 9999999;
+}
+.top:hover{
+    opacity: 1;
+}
+.show-top,
+.top svg{
+    margin-top: 20%;
+    font-size: 25px;
+}
+.show-top{
+    position: fixed;
+    width: 45px;
+    height: 45px;
+    visibility: visible;
+    opacity: .5;
+    transition: 1s;
+}

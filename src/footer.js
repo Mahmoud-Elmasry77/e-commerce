@@ -11,11 +11,12 @@ function Footer(){
     const [email, setEmail] = useState("");
     const [valid , setValid] = useState(true);
     const validEmail = (email)=>{
-        const reg = /([a-z ||A-Z || 0-9])?\@\w+\.\w{2}/gi;
+        const reg = /\w+@\w{2,}\.\w{2,}/ig;
         return reg.test(email);
     };
     const chang = (e)=>{ 
         if(e.target.value === ""){
+            setEmail("")
             return setValid(true)
         }else{
         setEmail(e.target.value);
@@ -24,10 +25,13 @@ function Footer(){
     }
     const submit = (e)=>{
         e.preventDefault();
-        if(!valid && e.target.value === " "){
-            return false
+        if(valid && email){
+            setEmail("")
+           return true
         }else{
-            return true
+            setEmail(e.target.value)
+            setValid(false)
+            return false
         }
     }
     return(
@@ -88,11 +92,11 @@ function Footer(){
 
                     <Col lg={3} md={3} sm={12}>
                         <div className="form" >
-                            <form action="" method="get" onSubmit={submit}>
+                            <form action="1.php"  method="get" onSubmit={submit}>
                             <label>Subscribe</label>
-                            <input  onChange={chang} type="text" placeholder="Your email address..." className={!valid && "valid"}></input>
+                            <input value={email} onChange={chang}  type="text" placeholder="Your email address..." className={!valid && "valid"}></input>
                                 <p  className={!valid ? "p" : ""}>email not valid</p>
-                            <input type="submit" className="p-3" value="subscribe"></input>
+                            <input type="submit" className="p-3" value="subscribe" ></input>
                             </form>
                         </div>
                     </Col> 
