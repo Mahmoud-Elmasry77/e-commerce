@@ -9,6 +9,7 @@ import Footer from './footer';
 function App() {
     const [showtop, setShowtop] = useState(false);
     const [block , setBlock] = useState("none")
+    const [loading , setLoading] = useState(true)
     window.onscroll = ()=>{
       setBlock("block")
       if(window.scrollY > 400){
@@ -23,16 +24,25 @@ function App() {
         behavior:"smooth"
       })
     }
+    useEffect(()=>{
+      const timer = setTimeout(()=>{
+        setLoading(false);
+      },3000)
+      return ()=> clearTimeout(timer);
+    },[])
   return (
     <BrowserRouter>
-    <div className="App">
+    
+    {loading? (<div class="loader"></div>) :
+    ( <div className="App">
     <div style={{display:block}} className={showtop? "top" : "top show-top"} onClick={sTop}><FontAwesomeIcon icon={faArrowUp} size='2x'/></div>
-      <Na/>
+    <Na/>
     <Routes>
       <Route path='/e-commerce' element={<Home/>}></Route>
     </Routes>
     <Footer/>
-    </div>
+  </div>)}
+   
     </BrowserRouter>
   )
 }

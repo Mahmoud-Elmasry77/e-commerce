@@ -28,6 +28,40 @@
     font-size:20px;
 }
 
+.loader {
+    width: 100px;
+    position: fixed;
+    top: 50%;
+    left: calc(50% - 50px);
+    aspect-ratio: 1;
+    display:grid;
+    -webkit-mask: conic-gradient(from 15deg,#0000,#000);
+    animation: l26 1s infinite steps(12);
+    z-index: 9999;
+  }
+  .loader,
+  .loader:before,
+  .loader:after{
+    background:
+      radial-gradient(closest-side at 50% 12.5%,
+      #2b3988 96%,#0000) 50% 0/20% 80% repeat-y,
+      radial-gradient(closest-side at 12.5% 50%,
+      #2b3988 96%,#0000) 0 50%/80% 20% repeat-x;
+  }
+  .loader:before,
+  .loader:after {
+    content: "";
+    grid-area: 1/1;
+    transform: rotate(30deg);
+  }
+  .loader:after {
+    transform: rotate(60deg);
+  }
+  
+  @keyframes l26 {
+    100% {transform:rotate(1turn)}
+  }
+
 @media (max-width:540px){
     .top{
         width: 25px;
@@ -36,6 +70,12 @@
     .top svg, .show-top svg{
         margin-top: 5px;
         font-size:15px;
+    }
+    .loader{
+        width: 50px;
+        position: fixed;
+        top: 50%;
+        left: calc(50% - 25px);
     }
 }
 ::-webkit-scrollbar{

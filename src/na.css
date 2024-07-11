@@ -69,6 +69,7 @@
  .aside-link{
   display: none;
  }
+
 @media (max-width : 900px){
  
   .navbar{
@@ -97,6 +98,7 @@
  }
  .num{
   background-color: #000000;
+  font-size: 15px;
   color: #ffffff;
   position: absolute;
   width: 18px;
