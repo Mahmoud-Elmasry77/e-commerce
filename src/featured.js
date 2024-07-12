@@ -9,15 +9,20 @@ import { Link } from "react-router-dom";
 import sportShose from '../src/imges/sports-shoe3-300x300.jpg'
 import axios from "axios";
 function Featured(){
-              const [show , setshow] = useState(false);
-              
-              const spanShow = ()=>{
-                    setshow(!show)
+              const [show , setshow] = useState(null);
+              const [pro, setPro] = useState([]);
+              const spanShow = (indix)=>{
+                    setshow(indix)
               }
               const spanHid = ()=>{
                 setshow(false)
               }
-    return(
+            useEffect(()=>{
+                    axios.get('https://fakestoreapi.com/products').then((pro)=>{
+                            setPro(pro.data)
+                    }).catch(Error => console.error("error"))
+            },[])
+    return(     
         <div className="featured">
             {/* Start product*/}
             <Container>
@@ -33,23 +38,29 @@ function Featured(){
             <div className="products">
             <Container>
                  <Row>
-                        <Col xs={6} md={4} lg={3}>
+                    {pro.map((pro, indix)=><Col xs={6} md={4} lg={3} key={pro.id}>
                             <div className="link-product">
-                                <Link onMouseEnter={spanShow} onMouseLeave={spanHid}><FontAwesomeIcon icon={faBagShopping} size="2x"/></Link> 
-                                <span className={show? "span show-span" : "span"}>Add to Cart</span>
-                                <div>
-                                    <img src={sportShose}/>
+                                <div className="parint">
+                                <Link  onMouseEnter={()=>spanShow(indix)} onMouseLeave={spanHid}><FontAwesomeIcon icon={faBagShopping} size="2x"/></Link> 
+                                <span className={show === indix ? "span show-span" : "span"}>Add to Cart</span>
+                                    <img src={pro.image}/>
+ 
+                                    <div className="pro-caption">
+                                        <h4>{pro.title}</h4>
+                                        <p className="price">&#36;{pro.price}</p>
+                                        <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
+                                        <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
+                                        <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
+                                        <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
+                                        <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
+                                    </div>
+
                                 </div>
-                                <h4>DNK Yellow Shoes</h4>
-                                <p className="type">men</p>
-                                <p className="price">&#36;120</p>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
                             </div>
-                        </Col>
+                           
+                    </Col>
+                )}
+
                 </Row>
             </Container>
          </div>
