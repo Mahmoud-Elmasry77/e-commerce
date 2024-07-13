@@ -143,6 +143,9 @@
     display: inline-block;
     margin-left: 30px;
 }
+.last-footer .social-links ul li:first-child{
+    margin-left: 0;
+}
 .last-footer .social-links ul li a svg{
     color: #000;
     font-size: 18px;
