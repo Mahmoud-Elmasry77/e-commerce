@@ -1,19 +1,23 @@
-import React from "react";
+import React, {memo, createContext} from "react";
+import axios from "axios";
 import './Home.css';
 import './na.css';
 import './slider.css';
-import Na from "./na";
 import Header from "./Header";
 import Slider from "./slider";
 import Featured from "./featured";
-function Home(){
+import { Api } from "./useapi";
+
+function Home({setData, setN}){
+
     return(
+
         <div>
             <Header/>
             <Slider/>
-            <Featured/> 
+            <Featured setData={setData} setN={setN}/> 
         </div>
     )
 }
 
-export default Home;
+export default memo (Home);

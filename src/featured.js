@@ -1,27 +1,13 @@
-import React, { useEffect, useState } from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBagShopping, faGlobe, faLock, faShirt, faTag } from "@fortawesome/free-solid-svg-icons";
-import { faStar} from "@fortawesome/free-regular-svg-icons";
+import {  faGlobe, faLock, faShirt, faTag } from "@fortawesome/free-solid-svg-icons";
 import "./featured.css";
 import { Col, Container, Row } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom";
-import sportShose from '../src/imges/sports-shoe3-300x300.jpg'
-import axios from "axios";
-function Featured(){
-              const [show , setshow] = useState(null);
-              const [pro, setPro] = useState([]);
-              const spanShow = (indix)=>{
-                    setshow(indix)
-              }
-              const spanHid = ()=>{
-                setshow(false)
-              }
-            useEffect(()=>{
-                    axios.get('https://fakestoreapi.com/products').then((pro)=>{
-                            setPro(pro.data)
-                    }).catch(Error => console.error("error"))
-            },[])
+import Products from "./product";
+function Featured({setData, setN}){
+             
     return(     
         <div className="featured">
             {/* Start product*/}
@@ -35,36 +21,10 @@ function Featured(){
                     </Col>
                 </Row>
             </Container>
-            <div className="products">
-            <Container>
-                 <Row>
-                    {pro.map((pro, indix)=><Col xs={6} md={4} lg={3} key={pro.id}>
-                            <div className="link-product">
-                                <div className="parint">
-                                <Link  onMouseEnter={()=>spanShow(indix)} onMouseLeave={spanHid}><FontAwesomeIcon icon={faBagShopping} size="2x"/></Link> 
-                                <span className={show === indix ? "span show-span" : "span"}>Add to Cart</span>
-                                    <img src={pro.image}/>
- 
-                                    <div className="pro-caption">
-                                        <h4>{pro.title}</h4>
-                                        <p className="price">&#36;{pro.price}</p>
-                                        <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                        <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                        <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                        <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                        <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-                                    </div>
-
-                                </div>
-                            </div>
-                           
-                    </Col>
-                )}
-
-                </Row>
-            </Container>
-         </div>
+           
            {/* end product*/}
+
+            <Products setData = {setData} setN={setN}/>
 
            {/* Start offer*/}
         <div className="time-offer">
@@ -85,6 +45,7 @@ function Featured(){
             </div>
         </div>
         {/* end offer*/}
+        
         <div className="offers">
         <Container>
             <Row>

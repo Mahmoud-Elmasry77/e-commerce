@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './footer.css';
@@ -17,7 +17,7 @@ function Footer(){
     const chang = (e)=>{ 
         if(e.target.value === ""){
             setEmail("")
-            return setValid(true)
+            setValid(true)
         }else{
         setEmail(e.target.value);
         setValid(validEmail(e.target.value))
@@ -34,6 +34,7 @@ function Footer(){
             return false
         }
     }
+ 
     return(
         <div className="footer">
             <div className="footer-links">
@@ -94,7 +95,7 @@ function Footer(){
                         <div className="form" >
                             <form action="1.php"  method="get" onSubmit={submit}>
                             <label>Subscribe</label>
-                            <input value={email} onChange={chang}  type="text" placeholder="Your email address..." className={!valid && "valid"}></input>
+                            <input  value={email} onChange={chang}  type="text" placeholder="Your email address..." className={!valid && "valid"}></input>
                                 <p  className={!valid ? "p" : ""}>email not valid</p>
                             <input type="submit" className="p-3" value="subscribe" ></input>
                             </form>
