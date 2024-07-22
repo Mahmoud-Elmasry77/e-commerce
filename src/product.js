@@ -5,32 +5,55 @@ import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 import { faStar} from "@fortawesome/free-regular-svg-icons";
 import { Col, Container, Row } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link } from "react-router-dom";
+import { json, Link } from "react-router-dom";
 import "./product.css";
 import Na from "./na";
 import { Api } from "./useapi";
 
-function Products({setData, setN}){
+function Products({setData, setN, setCartnav}){
    const [pro, loading, err] = Api("https://fakestoreapi.com/products")
     const [show , setshow] = useState(null);
     const [price, setPrice] = useState(null);
-    const [num , setNum] = useState(0)
-    const spanShow = (indix)=>{
+    const [num , setNum] = useState(0);
+    const [cart, setCart] = useState([])
+    const spanShow = useCallback((indix)=>{
           setshow(indix)
-    }
-    const spanHid = ()=>{
-      setshow(null)
-    }
+    }) 
+    const spanHid = useCallback(()=>{
+        setshow(null)
+      }) 
+
+
    const by = (id)=>{
+
     setPrice(parseFloat((id.price + price).toFixed(2)));
-    setNum(num + 1)
+
+    setNum(num + 1);
+
+    setCart([...cart , {
+        id : id.id,
+        title : id.title,
+        image : id.image,
+        price : id.price,
+    }])
+    window.localStorage.setItem("price", JSON.stringify(parseFloat((id.price + price).toFixed(2))))
+    window.localStorage.setItem("num", JSON.stringify(num + 1))
    }
-   useCallback(
-    setData(price === null ? "00.0" : price)
-   )
-   useCallback(
-    setN(num)
-   )
+
+   useEffect(()=>{
+    if(window.localStorage.getItem("price") || window.localStorage.getItem("num")){
+        setPrice(JSON.parse(window.localStorage.getItem("price")));
+        setNum(JSON.parse(window.localStorage.getItem("num")))
+  }
+  })
+
+  useCallback(
+    setData(price === null ? "00.0" : price),
+    setN(num),)
+
+    
+    setCartnav(cart)
+  
     return(
         <div className="products">
         <Container>
