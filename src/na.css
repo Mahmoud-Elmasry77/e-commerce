@@ -228,25 +228,40 @@
   cursor: pointer;
   font-size: 20px;
 }
-
+.cart-shop button{
+  height: 30px;
+  border: none;
+}
 .show-cart{
   width: 40%;
 }
 .pro-nav{
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: nowrap;
   color: #000;
 }
 .pro-nav-caption {
-  width: 35%;
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  padding: 10px;
 }
 .pro-nav-caption h4 {
  font-size: 15px;
+ width: 70%;
 }
 .pro-nav img{
-  width: 100px;
+  width: 30%;
+  height: 50px;
   display: inline;
+}
+.btn-showcart{
+  width: 100%;
+  background-color: #00b3ff;
+  color: #fff;
+  margin-bottom: 10px;
 }
 @media (max-width : 900px){
   .show-cart{

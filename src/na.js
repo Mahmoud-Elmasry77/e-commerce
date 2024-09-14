@@ -1,23 +1,39 @@
 import { Nav,NavDropdown,Navbar,Container} from 'react-bootstrap';
 import { NavLink, Link } from 'react-router-dom';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping,faUser,faBars,faXmark } from '@fortawesome/free-solid-svg-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./na.css";
 import theimg from'./imges/sports-shoe3-300x300.jpg';
+import { useBootstrapPrefix } from 'react-bootstrap/esm/ThemeProvider';
 function Na({data, n, nav, cartnav}) {
   const [show, setshow] = useState();
-
- const saidebar = ()=>{
-    setshow(!show)
-  }
-
   const [showcart , setShowcart] = useState(true);
+  const [pronav, setpronav] = useState([]);
+  const [pricecart , setpricecart] = useState()
 
-  const Shcart = ()=>{
-    setShowcart(!showcart)
+  const saidebar = ()=>{
+      setshow(!show)
+    }
+
+    const Shcart = ()=>{
+      setShowcart(!showcart)
+    }
+
+  const Claerpro = (indix)=>{
+   pronav.splice(indix, 1);
+   setpronav(pronav)
   }
+  console.log(pronav)
+  useEffect(()=>{
+    setpronav(cartnav)
+    if(window.localStorage.getItem("price")){
+    setpricecart(JSON.parse(window.localStorage.getItem("price")))
+    }
+  },[cartnav])
+
+
   return (
 
      <Navbar  expand="lg" className={nav? "navbar" : "navbar-woman"}>
@@ -72,21 +88,26 @@ function Na({data, n, nav, cartnav}) {
                  </div>
             </div>
 
-
+          
             <div className={showcart? "cart-shop": "cart-shop show-cart"}>
                           <div className='nav-cart' >
                             <p className='p-cart'> Shopping Cart</p>
                             <div onClick={Shcart} className='close-cart'><FontAwesomeIcon icon={faXmark}/></div>
                           </div>
-                        
-                        <div className='pro-nav'>
-                          <div className='pro-nav-caption'>
-                              <img src={theimg}/>
-                              <h4>shosse</h4>
-                              <p>price</p>
-                          </div>
-                          <button><FontAwesomeIcon icon={faXmark}/></button>
-                        </div>
+                           {pronav&& pronav.map((pro, indix)=> 
+
+                      <div className='pro-nav' key={pro.id}>
+                      <div className='pro-nav-caption'>
+                          <img src={pro.image}/>
+                          <h4>{pro.title}</h4>
+                          <p>${pro.price}</p>
+                      </div>
+                      <button onClick={()=>Claerpro(indix)}><FontAwesomeIcon icon={faXmark}/></button>
+                      
+                    </div>
+                      )}   
+                    {pronav && pronav.length > 0 ? <button className='btn-showcart'>showcart</button> : ""} 
+                    {pricecart && <button className='btn-showcart'>Total {pricecart}</button>}
               </div>
     </Navbar>
   );
