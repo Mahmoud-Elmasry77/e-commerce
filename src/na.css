@@ -201,11 +201,12 @@
 
 .cart-shop{
   position: fixed;
-  background-color: #fff;
+  background-color: #f0f0f0;
   right: 0;
   top: 0;
   width: 0;
   height: 100vh;
+  overflow:auto;
   transition: .2s;
 }
 .nav-cart{
@@ -236,6 +237,7 @@
   width: 40%;
 }
 .pro-nav{
+  padding: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -22,10 +22,9 @@ function Na({data, n, nav, cartnav}) {
     }
 
   const Claerpro = (indix)=>{
-   pronav.splice(indix, 1);
-   setpronav(pronav)
+    const updatePronav = pronav.splice(indix,1);
+    console.log(updatePronav)
   }
-  console.log(pronav)
   useEffect(()=>{
     setpronav(cartnav)
     if(window.localStorage.getItem("price")){
