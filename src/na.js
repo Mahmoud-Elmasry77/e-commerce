@@ -12,6 +12,7 @@ function Na({data, n, nav, cartnav}) {
   const [showcart , setShowcart] = useState(true);
   const [pronav, setpronav] = useState([]);
   const [pricecart , setpricecart] = useState()
+  const[arr , Setarr] = useState(true)
 
   const saidebar = ()=>{
       setshow(!show)
@@ -22,9 +23,10 @@ function Na({data, n, nav, cartnav}) {
     }
 
   const Claerpro = (indix)=>{
-    const updatePronav = pronav.splice(indix,1);
-    console.log(updatePronav)
+    pronav.splice(indix,1)
+    Setarr(!arr)
   }
+  console.log( pronav)
   useEffect(()=>{
     setpronav(cartnav)
     if(window.localStorage.getItem("price")){
