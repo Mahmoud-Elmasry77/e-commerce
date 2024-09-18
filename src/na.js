@@ -1,6 +1,6 @@
 import { Nav,NavDropdown,Navbar,Container} from 'react-bootstrap';
 import { NavLink, Link } from 'react-router-dom';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping,faUser,faBars,faXmark } from '@fortawesome/free-solid-svg-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -21,17 +21,20 @@ function Na({data, n, nav, cartnav}) {
     const Shcart = ()=>{
       setShowcart(!showcart)
     }
-
   const Claerpro = (indix)=>{
     pronav.splice(indix,1)
     Setarr(!arr)
+    window.localStorage.setItem("product",JSON.stringify(pronav))
   }
-  console.log( pronav)
   useEffect(()=>{
     setpronav(cartnav)
-    if(window.localStorage.getItem("price")){
-    setpricecart(JSON.parse(window.localStorage.getItem("price")))
-    }
+    if(window.localStorage.getItem("price")|| window.localStorage.getItem("product")){
+    setpricecart(JSON.parse(window.localStorage.getItem("price")));
+    setpronav(JSON.parse(window.localStorage.getItem("product")))
+    }else{
+      setpronav([])
+      setpricecart("")
+    };
   },[cartnav])
 
 
@@ -108,7 +111,7 @@ function Na({data, n, nav, cartnav}) {
                     </div>
                       )}   
                     {pronav && pronav.length > 0 ? <button className='btn-showcart'>showcart</button> : ""} 
-                    {pricecart && <button className='btn-showcart'>Total {pricecart}</button>}
+                    {pronav && pronav.length > 0 && pricecart? <button className='btn-showcart'>Total {pricecart}</button> : ""}
               </div>
     </Navbar>
   );

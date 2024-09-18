@@ -16,6 +16,7 @@ function Products({setData, setN, setCartnav}){
     const [price, setPrice] = useState(null);
     const [num , setNum] = useState(0);
     const [cart, setCart] = useState([]);
+    const [local, setLocal] = useState([])
 
     const spanShow = useCallback((indix)=>{
           setshow(indix)
@@ -36,16 +37,31 @@ function Products({setData, setN, setCartnav}){
         title : id.title,
         image : id.image,
         price : id.price,
-    }])
+    }]);
+    
     window.localStorage.setItem("price", JSON.stringify(parseFloat((id.price + price).toFixed(2))))
     window.localStorage.setItem("num", JSON.stringify(num + 1));
+    window.localStorage.setItem("product", JSON.stringify([...cart,
+        {
+        id : id.id,
+        title : id.title,
+        image : id.image,
+        price : id.price,
+    }]))
    }
 
    useEffect(()=>{
     if(window.localStorage.getItem("price") || window.localStorage.getItem("num")){
         setPrice(JSON.parse(window.localStorage.getItem("price")));
-        setNum(JSON.parse(window.localStorage.getItem("num")))
-  }
+        setNum(JSON.parse(window.localStorage.getItem("num")));
+        setLocal(JSON.parse(window.localStorage.getItem("product")));
+        setCart(local)
+    }
+    else{
+        setPrice(null);
+        setNum(0)
+        setLocal([])
+    }
   })
 
   useCallback(
