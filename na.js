@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./na.css";
 import theimg from'./imges/sports-shoe3-300x300.jpg';
 import { useBootstrapPrefix } from 'react-bootstrap/esm/ThemeProvider';
-function Na({data, n, nav, cartnav, setRender}) {
+function Na({data, n, nav, cartnav, setRender, render}) {
   const [show, setshow] = useState();
   const [showcart , setShowcart] = useState(true);
   const [pronav, setpronav] = useState([]);
@@ -21,12 +21,14 @@ function Na({data, n, nav, cartnav, setRender}) {
     const Shcart = ()=>{
       setShowcart(!showcart)
     }
+
+
   const Claerpro = (indix)=>{
     pronav.splice(indix,1)
-    Setarr(!arr)
-    setRender(!false)
+    setRender(!render)
     window.localStorage.setItem("product",JSON.stringify(pronav))
   }
+
   useEffect(()=>{
     if(window.localStorage.getItem("price") && window.localStorage.getItem("num") && window.localStorage.getItem("product")){
     setpricecart(JSON.parse(window.localStorage.getItem("price")));

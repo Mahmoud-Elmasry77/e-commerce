@@ -10,7 +10,7 @@ import "./product.css";
 import Na from "./na";
 import { Api } from "./useapi";
 
-function Products({setData, setN, setCartnav, render}){
+function Products({setData, setN, setCartnav, setRender, render}){
    const [pro, loading, err] = Api("https://fakestoreapi.com/products")
     const [show , setshow] = useState(null);
     const [price, setPrice] = useState(null);
@@ -30,6 +30,8 @@ function Products({setData, setN, setCartnav, render}){
     setPrice(parseFloat((id.price + price).toFixed(2)));
 
     setNum(num + 1);
+    setRender(!render)  
+
     setCart([...cart , {
         id : id.id,
         title : id.title,
@@ -53,7 +55,8 @@ function Products({setData, setN, setCartnav, render}){
         setPrice(JSON.parse(window.localStorage.getItem("price")));
         setNum(JSON.parse(window.localStorage.getItem("num")));
         setLocal(JSON.parse(window.localStorage.getItem("product")))
-        setCart(local);   
+        setCart(local);
+        setRender(!render)  
     }else{
         setCart(cart)
     }
