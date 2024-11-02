@@ -1,0 +1,257 @@
+.featured{
+    background-color: #f5f7f9;
+    margin-top: 100px;
+}
+
+.featured h2{
+    margin-top: 100px;
+    font-size: 50px;
+}
+
+.line{
+    background-color: #6EC1E4;
+    width: 100px;
+    height: 2px;
+    margin: 40px 0 0 calc(50% - 50px);
+}
+
+
+/* start time offer*/
+.time-offer{
+    position: relative;
+    margin: auto;
+    width: 90%;
+    height: 500px;
+    background-image: url("../src/imges/banner-03.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    overflow: hidden;
+}
+.time-offer .time-overlay{
+    background-color: #2b398859;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+}
+.time-caption{
+    top: 100px;
+}
+.time-offer h5{
+   margin-bottom: 20px;
+}
+.time-offer h3{
+        font-size: 40px;
+        margin-bottom: 10px;
+}
+.time-offer .p{
+    font-size: 17px;
+    font-weight: 300;
+    margin-top: 0;
+}
+.time-offer .buy{
+    font-size: 20px;
+    margin-top: 0;
+}
+@media (max-width:540px){
+    .featured h2{
+        font-size: 20px;
+    }
+  
+    .time-offer{
+        background-attachment: unset;
+    }
+    .time-caption{
+        text-align: center;
+        margin-top: 100px;
+    }
+    .time-offer .buy{
+        font-size: 10px;
+        margin-bottom: 50px;
+        margin-top: 50px;
+    }
+    .time-offer .p{
+        margin-top: 20px;
+         font-size: 12px;
+     }
+
+}
+@media (min-width:541px) and (max-width:720px){
+    .featured h2{
+        font-size: 25px;
+    }
+  
+    .time-offer{
+        width: 90%;
+        height: 400px;
+        background-attachment: unset;
+        background-position: center;
+    }
+    .time-caption{
+        text-align: center;
+        margin-top: 100px;
+    }
+    .time-offer h5{
+        margin-bottom: 20px;
+     }
+     .time-offer h3{
+             font-size: 30px;
+             margin-bottom: 20px;
+     }
+     .time-offer .p{
+        text-align: center;
+         font-size: 12px;
+         font-weight: 300;
+         width:100%;
+         margin-top: 0;
+         margin-bottom: 20px;
+     }
+     .time-offer .buy{
+         font-size: 15px;
+         margin-top: 0;
+     }
+     .time-offer .p-3{
+        margin-top: 20px;
+     }
+}
+
+@media (min-width:721px) and (max-width:960px) {
+    .featured h2{
+        font-size: 35px;
+    }
+  
+    .time-offer{
+        width: 90%;
+        background-attachment: unset;
+        background-position: center;
+    }
+    .time-caption{
+        text-align: left;
+        margin-top: 100px;
+    }
+    .time-offer .p{
+        text-align: left;
+         font-size: 12px;
+         font-weight: 300;
+         width:100%;
+         margin-top: 30px;
+         margin-bottom: 50px;
+     }
+     .time-offer .buy{
+        text-align: left;
+        font-size: 15px;
+        width: 90%;
+        margin-top: 0;
+    }
+     .time-caption .p-3{
+        width: 50%;
+     }
+}
+
+@media (min-width:961px) and (max-width:1200px){
+    .time-caption{
+        text-align: left;
+        margin-top: 100px;
+        padding-left: 20px;
+    }
+    .time-offer .p{
+        text-align: left;
+         font-size: 12px;
+         font-weight: 300;
+         width:100%;
+         margin-top: 30px;
+         margin-bottom: 50px;
+     }
+}
+
+@media (min-width:1201px){
+    .time-caption{
+        text-align: left;
+        margin-top: 100px;
+        padding-left: 20px;
+    }
+    .time-offer .p{
+        text-align: left;
+         font-size: 15px;
+         font-weight: 300;
+         width:50%;
+         margin-top: 30px;
+         margin-bottom: 50px;
+     }
+}
+
+/* end time offer*/
+
+/* start offers*/
+.offers{
+    margin-top: 100px;
+    padding-bottom: 100px;
+    text-align: center;
+}
+.offers h5{
+   margin-top: 30px;
+}
+.offers p{
+    margin-top: 15px;
+    color: #5c5c5c;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 2;
+ }
+ @media (max-width:720px){
+    .offers{
+        padding-bottom: 20px;
+    }
+    .offers-icon{
+        margin-top: 30px;
+        width:100%;
+    }
+    .offers-icon h5{
+        font-size: 15px;
+    }
+ }
+ @media (min-width:721px) and (max-width:960px) {
+    .offers-icon{
+        width: 80%;
+    }
+    .offers-icon h5{
+        font-size: 15px;
+    }
+    .offers-icon p{
+        font-size: 12px;
+    }
+    .offers-icon svg{
+        width: 35px;
+    }
+}
+
+/* end offers */
+
+.feat-link{
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #ccc;
+    padding: 50px;
+    background-color: #fff;
+}
+
+.feat-link a{
+    color: #000;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+    transition: .7s;
+}
+
+.feat-link a:hover{
+    color: #2b3988;
+}
+@media (max-width:720px){
+    .feat-link{
+        text-align: center;
+    }
+    .feat-link a{
+        font-size: 15px;
+    }
+}
+
+

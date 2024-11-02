@@ -1,0 +1,187 @@
+
+.carousel{
+    height: 100px;
+    margin-top: 40px;
+}
+.carousel-inner{
+    text-align: center;
+}
+.carousel-indicators{
+    display: none;
+}
+.carousel-control-next-icon {
+    background-image: url("../src/imges/circle-arrow-right-solid.svg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+    opacity: 1;
+}
+.carousel-control-prev-icon{
+    background-image: url("../src/imges/circle-arrow-left-solid.svg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+    opacity: 1;
+}
+
+.item1{
+    width: 200px;
+    height: 90px;
+    background-image : url("../src/imges/3.png") ;
+    background-size: 200px 90px;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: auto;
+}
+.item2{
+    width: 200px;
+    height: 90px;
+    background-image : url("../src/imges/puma.png") ;
+    background-size: 200px 90px;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: auto;
+}
+.item3{
+    width: 200px;
+    height: 90px;
+    background-image : url("../src/imges/4.png") ;
+    background-size: 200px 90px;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: auto;
+}
+.item4{
+    width: 200px;
+    height: 90px;
+    background-image : url("../src/imges/mango.png") ;
+    background-size: 200px 90px;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: auto;
+}
+.parent-offer{
+    margin-top: 40px;
+}
+.offer{
+    position: relative;
+    width: 100%;
+    height: 450px;
+    color: #000000;
+}
+.of-1{
+    position: absolute;
+    background-image: url("../src/imges/women-fashion-free-img.jpg");
+    background-size: cover;
+    background-position: center 1px;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+.of-2{
+    position: absolute;
+    background-image: url("../src/imges/men-fashion-free-img.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+.of-3{
+    position: absolute;
+    background-image: url("../src/imges/footwear-free-img.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+.o-overlay{
+    position: absolute;
+    background-color: #00000075;
+    width: 100%;
+    height: 100%;
+}
+.o-overlay div{
+    width: 100%;
+    height: 100%;
+    margin-top: 150px;
+    padding: 20px;
+}
+.o-overlay h2{
+    color: #fff;
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+.o-overlay p{
+    font-size: 17px;
+    font-weight: normal;
+    margin-top: 20px;
+}
+.o-overlay button{
+        width: 200px;
+        background-color: #fff;
+        color: #000;
+        border: none;
+        border-radius: 0;
+        margin-right: 10px;
+        margin-top: 10px;
+        transition: .5s;
+}
+.o-overlay button:hover{
+    background-color: #000;
+    color: #fff;
+}
+@media  (max-width:900px){
+    .parint-offer{
+        margin-top: 20px;
+    }
+    .offer{
+        margin-top: 20px;
+        height: 300px;
+    }
+    .o-overlay div{
+        width: 100%;
+        height: 100%;
+        margin-top: 100px;
+        padding: 20px;
+    }
+    .o-overlay h2{
+        font-size: 20px;
+    }
+    .o-overlay p{
+        display: block;
+        text-align: left;
+        font-size: 12px;
+        font-weight: normal;
+        margin-top: 10px;
+    }
+    .o-overlay button{
+      width: 100%;
+}
+}
+@media (min-width:901px) and (max-width:1300px){ 
+    .offer{
+        margin-top: 20px;
+    }
+    .o-overlay div{
+        width: 100%;
+        margin-top: 200px;
+        padding: 20px;
+    }
+    .o-overlay h2{
+        font-size: 20px;
+    }
+    .o-overlay p{
+        display: block;
+        text-align: left;
+        font-size: 15px;
+        font-weight: normal;
+        margin-top: 10px;
+    }
+    .o-overlay button{
+      width: 100%;
+}
+}
