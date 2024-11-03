@@ -8,7 +8,7 @@ import "./na.css";
 function Na({data, n, nav, cartnav, setRender, render}) {
   const [show, setshow] = useState();
   const [showcart , setShowcart] = useState(true);
-  const [pronav, setpronav] = useState([]);
+  const [pronav, setPronav] = useState([])
   const [pricecart , setpricecart] = useState()
   const[arr , Setarr] = useState(true)
 
@@ -22,21 +22,23 @@ function Na({data, n, nav, cartnav, setRender, render}) {
 
 
   const Claerpro = (indix)=>{
-    pronav.splice(indix,1)
-    window.localStorage.setItem("product",JSON.stringify(pronav))
+    cartnav.splice(indix,1);
+    Setarr(!arr)
     setRender(!render)
+    setPronav(cartnav)
+    window.localStorage.setItem("product", JSON.stringify(cartnav))
   }
 
-  useEffect(()=>{
-    if(window.localStorage.getItem("price") && window.localStorage.getItem("num") && window.localStorage.getItem("product")){
-    setpricecart(JSON.parse(window.localStorage.getItem("price")));
-    setpronav(JSON.parse(window.localStorage.getItem("product")));
-    } else{
-      setpronav(cartnav)
-    }
-  },[cartnav])
  
-
+useEffect(()=>{
+  if(window.localStorage.getItem("product")){
+    setpricecart(JSON.parse(window.localStorage.getItem("price")))
+    setPronav(JSON.parse(window.localStorage.getItem("product")))
+  }
+  else{
+    setPronav(cartnav)
+  }
+},[cartnav],[arr])
   return (
 
      <Navbar  expand="lg" className={nav? "navbar" : "navbar-woman"}>

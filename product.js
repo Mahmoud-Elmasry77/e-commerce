@@ -47,25 +47,26 @@ function Products({setData, setN, setCartnav, setRender, render}){
         image : id.image,
         price : id.price,
     }]))
-   }
+   };
 
    useEffect(()=>{
     if( window.localStorage.getItem("product")){  
         setPrice(JSON.parse(window.localStorage.getItem("price")));
         setNum(JSON.parse(window.localStorage.getItem("num")));
         setLocal(JSON.parse(window.localStorage.getItem("product")))
+        setCartnav(cart)
         setCart(local);
        
     }else{
         setCart([])
     }
-  },[render])
+  },[])
 
 useEffect(()=>{
     setData(price === null ? "00.0" : price),
     setN(num),
     setCartnav(cart)
-},[cart])
+})
 
 
 
