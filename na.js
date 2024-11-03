@@ -5,8 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping,faUser,faBars,faXmark } from '@fortawesome/free-solid-svg-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./na.css";
-import theimg from'./imges/sports-shoe3-300x300.jpg';
-import { useBootstrapPrefix } from 'react-bootstrap/esm/ThemeProvider';
 function Na({data, n, nav, cartnav, setRender, render}) {
   const [show, setshow] = useState();
   const [showcart , setShowcart] = useState(true);
@@ -25,14 +23,14 @@ function Na({data, n, nav, cartnav, setRender, render}) {
 
   const Claerpro = (indix)=>{
     pronav.splice(indix,1)
-    setRender(!render)
     window.localStorage.setItem("product",JSON.stringify(pronav))
+    setRender(!render)
   }
 
   useEffect(()=>{
     if(window.localStorage.getItem("price") && window.localStorage.getItem("num") && window.localStorage.getItem("product")){
     setpricecart(JSON.parse(window.localStorage.getItem("price")));
-    setpronav(JSON.parse(window.localStorage.getItem("product")))
+    setpronav(JSON.parse(window.localStorage.getItem("product")));
     } else{
       setpronav(cartnav)
     }

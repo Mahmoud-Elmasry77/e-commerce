@@ -15,7 +15,7 @@ function Products({setData, setN, setCartnav, setRender, render}){
     const [show , setshow] = useState(null);
     const [price, setPrice] = useState(null);
     const [num , setNum] = useState(0);
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState();
     const [local, setLocal] = useState([])
     const spanShow = useCallback((indix)=>{
           setshow(indix)
@@ -30,7 +30,6 @@ function Products({setData, setN, setCartnav, setRender, render}){
     setPrice(parseFloat((id.price + price).toFixed(2)));
 
     setNum(num + 1);
-    setRender(!render)  
 
     setCart([...cart , {
         id : id.id,
@@ -51,14 +50,14 @@ function Products({setData, setN, setCartnav, setRender, render}){
    }
 
    useEffect(()=>{
-    if(window.localStorage.getItem("price") && window.localStorage.getItem("num") && window.localStorage.getItem("product")){
+    if( window.localStorage.getItem("product")){  
         setPrice(JSON.parse(window.localStorage.getItem("price")));
         setNum(JSON.parse(window.localStorage.getItem("num")));
         setLocal(JSON.parse(window.localStorage.getItem("product")))
         setCart(local);
-        setRender(!render)  
+       
     }else{
-        setCart(cart)
+        setCart([])
     }
   },[render])
 
@@ -66,7 +65,7 @@ useEffect(()=>{
     setData(price === null ? "00.0" : price),
     setN(num),
     setCartnav(cart)
-})
+},[cart])
 
 
 
