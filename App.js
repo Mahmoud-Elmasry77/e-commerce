@@ -49,10 +49,10 @@ function App() {
     },[]);
 
     useEffect(()=>{
-      if(window.localStorage.getItem("product") < 0){
+      if(window.localStorage.getItem("product")){
           setData(JSON.parse (window.localStorage.getItem("price")));
-          setN(JSON.parse (window.localStorage.getItem("num")));
-      }
+          setN(JSON.parse (window.localStorage.getItem("num")))
+      }else{}
     },[])
   return (
     <BrowserRouter>

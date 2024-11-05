@@ -49,7 +49,7 @@ function Products({setData, setN, setCartnav, setRender, render, num , setNum}){
    };
 
    useEffect(()=>{
-    if( window.localStorage.getItem("product") < 0){  
+    if( window.localStorage.getItem("product")){  
         setPrice(JSON.parse(window.localStorage.getItem("price")));
         setNum(JSON.parse(window.localStorage.getItem("num")));
         setLocal(JSON.parse(window.localStorage.getItem("product")))
