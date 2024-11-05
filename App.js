@@ -49,9 +49,9 @@ function App() {
     },[]);
 
     useEffect(()=>{
-      if(window.localStorage.getItem("product")){
+      if(window.localStorage.getItem("product") <=1){
           setData(JSON.parse (window.localStorage.getItem("price")));
-          setN(JSON.parse (window.localStorage.getItem("num")))
+          setN(JSON.parse (window.localStorage.getItem("num")));
       }
     },[])
   return (
