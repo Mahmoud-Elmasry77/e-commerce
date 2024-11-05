@@ -36,7 +36,6 @@ useEffect(()=>{
   if(window.localStorage.getItem("product")){
     setpricecart(JSON.parse(window.localStorage.getItem("price")))
     setPronav(JSON.parse(window.localStorage.getItem("product")))
-    
   }
   else{
     setPronav(cartnav)
