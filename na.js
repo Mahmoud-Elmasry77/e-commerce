@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping,faUser,faBars,faXmark } from '@fortawesome/free-solid-svg-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./na.css";
-function Na({data, n, nav, cartnav, setRender, render}) {
+function Na({data, n, nav, cartnav, setRender, render, num, setNum}) {
   const [show, setshow] = useState();
   const [showcart , setShowcart] = useState(true);
   const [pronav, setPronav] = useState([])
@@ -26,6 +26,7 @@ function Na({data, n, nav, cartnav, setRender, render}) {
     Setarr(!arr)
     setRender(!render)
     setPronav(cartnav)
+    setNum(num - 1);
     window.localStorage.setItem("product", JSON.stringify(cartnav))
   }
 

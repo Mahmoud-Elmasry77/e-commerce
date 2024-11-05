@@ -16,7 +16,8 @@ function App() {
     const[n, setN] = useState()
     const [nav , setNav] = useState(true);
     const[cartnav, setCartnav] = useState();
-    const [render, setRender] = useState()
+    const [render, setRender] = useState();
+    const [num , setNum] = useState(0);
 
     window.onscroll = ()=>{
       setBlock("block")
@@ -59,9 +60,9 @@ function App() {
     {loading? (<div class="loader"></div>) :
     ( <div className="App">
     <div style={{display:block}} className={showtop? "top" : "top show-top"} onClick={sTop}><FontAwesomeIcon icon={faArrowUp} size='2x'/></div>
-    <Na data = {data} n= {n} nav = {nav} cartnav={cartnav} setRender={setRender} render = {render}/>
+    <Na data = {data} n= {n} nav = {nav} cartnav={cartnav} setRender={setRender} render = {render} num={num} setNum={setNum}/>
     <Routes>
-      <Route path='/e-commerce' element={<Home setData = {setData} setN= {setN} setCartnav={setCartnav} setRender={setRender} render = {render}/>}></Route>
+      <Route path='/e-commerce' element={<Home setData = {setData} setN= {setN} setCartnav={setCartnav} setRender={setRender} render = {render} num={num} setNum={setNum}/>}></Route>
        <Route path='/woman' element={<Woman/>}></Route>
       <Route path='*' element={<Notfound/>}></Route>
      

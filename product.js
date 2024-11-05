@@ -10,11 +10,11 @@ import "./product.css";
 import Na from "./na";
 import { Api } from "./useapi";
 
-function Products({setData, setN, setCartnav, setRender, render}){
+function Products({setData, setN, setCartnav, setRender, render, num , setNum}){
    const [pro, loading, err] = Api("https://fakestoreapi.com/products")
     const [show , setshow] = useState(null);
     const [price, setPrice] = useState(null);
-    const [num , setNum] = useState(0);
+   
     const [cart, setCart] = useState();
     const [local, setLocal] = useState([])
     const spanShow = useCallback((indix)=>{

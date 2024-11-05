@@ -6,7 +6,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom";
 import Products from "./product";
-function Featured({setData, setN, setCartnav, setRender, render}){
+function Featured({setData, setN, setCartnav, setRender, render, num, setNum}){
              
     return(     
         <div className="featured">
@@ -24,7 +24,7 @@ function Featured({setData, setN, setCartnav, setRender, render}){
            
            {/* end product*/}
 
-            <Products setData = {setData} setN={setN} setCartnav = {setCartnav} setRender={setRender} render = {render}/>
+            <Products setData = {setData} setN={setN} setCartnav = {setCartnav} setRender={setRender} render = {render} num ={num} setNum={setNum}/>
 
            {/* Start offer*/}
         <div className="time-offer">
