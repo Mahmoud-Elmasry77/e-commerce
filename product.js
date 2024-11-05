@@ -14,7 +14,6 @@ function Products({setData, setN, setCartnav, setRender, render, num , setNum}){
    const [pro, loading, err] = Api("https://fakestoreapi.com/products")
     const [show , setshow] = useState(null);
     const [price, setPrice] = useState(null);
-   
     const [cart, setCart] = useState();
     const [local, setLocal] = useState([])
     const spanShow = useCallback((indix)=>{
@@ -59,6 +58,8 @@ function Products({setData, setN, setCartnav, setRender, render, num , setNum}){
        
     }else{
         setCart([])
+        setNum(0)
+        setPrice(null)
     }
   },[])
 

@@ -28,6 +28,7 @@ function Na({data, n, nav, cartnav, setRender, render, num, setNum}) {
     setPronav(cartnav)
     setNum(num - 1);
     window.localStorage.setItem("product", JSON.stringify(cartnav))
+    window.localStorage.setItem("num", JSON.stringify(num - 1));
   }
 
  
@@ -35,6 +36,7 @@ useEffect(()=>{
   if(window.localStorage.getItem("product")){
     setpricecart(JSON.parse(window.localStorage.getItem("price")))
     setPronav(JSON.parse(window.localStorage.getItem("product")))
+    
   }
   else{
     setPronav(cartnav)
