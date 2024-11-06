@@ -5,42 +5,42 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping,faUser,faBars,faXmark } from '@fortawesome/free-solid-svg-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./na.css";
-function Na({data, n, nav, cartnav, setRender, render, num, setNum}) {
+function Na({data, n, nav, cartnav, setRender, render, num, setNum, setCart, cart}) {
   const [show, setshow] = useState();
   const [showcart , setShowcart] = useState(true);
-  const [pronav, setPronav] = useState([])
   const [pricecart , setpricecart] = useState()
   const[arr , Setarr] = useState(true)
 
   const saidebar = ()=>{
       setshow(!show)
+      setRender(!render)
     }
 
     const Shcart = ()=>{
       setShowcart(!showcart)
+      setRender(!render)
     }
 
 
   const Claerpro = (indix)=>{
-    cartnav.splice(indix,1);
+    cart.splice(indix,1);
     Setarr(!arr)
     setRender(!render)
-    setPronav(cartnav)
     setNum(num - 1);
-    window.localStorage.setItem("product", JSON.stringify(cartnav))
+    window.localStorage.setItem("product", JSON.stringify(cart))
     window.localStorage.setItem("num", JSON.stringify(num - 1));
   }
 
  
 useEffect(()=>{
-  if(window.localStorage.getItem("product")){
+  if(window.localStorage.getItem("product")|| window.localStorage.getItem("price")|| window.localStorage.getItem("num")){
     setpricecart(JSON.parse(window.localStorage.getItem("price")))
-    setPronav(JSON.parse(window.localStorage.getItem("product")))
+    setCart(JSON.parse(window.localStorage.getItem("product")))
   }
   else{
-    setPronav(cartnav)
+    setCart(cart)
   }
-},[cartnav],[arr])
+},[render])
   return (
 
      <Navbar  expand="lg" className={nav? "navbar" : "navbar-woman"}>
@@ -61,7 +61,7 @@ useEffect(()=>{
               <NavLink className="nav-link " to="contactus">CONTACTUS</NavLink>
               <a onClick={Shcart} className="nav-link salary sm1">${data}</a>
               <div className='num-stor stor'>
-              <div className='num'>{n}</div>
+              <div className='num'>{num}</div>
               <a onClick={Shcart} className="nav-link car"><FontAwesomeIcon icon={faCartShopping}/></a>
               </div>
               <NavLink className="nav-link user"  to='user'><FontAwesomeIcon icon={faUser}/></NavLink>
@@ -101,7 +101,7 @@ useEffect(()=>{
                             <p className='p-cart'> Shopping Cart</p>
                             <div onClick={Shcart} className='close-cart'><FontAwesomeIcon icon={faXmark}/></div>
                           </div>
-                           {pronav&& pronav.map((pro, indix)=> 
+                           {cart&& cart.map((pro, indix)=> 
 
                       <div className='pro-nav' key={pro.id}>
                       <div className='pro-nav-caption'>
@@ -113,8 +113,8 @@ useEffect(()=>{
                       
                     </div>
                       )}   
-                    {pronav && pronav.length > 0 ? <button className='btn-showcart'>showcart</button> : ""} 
-                    {pronav && pronav.length > 0 && pricecart? <button className='btn-showcart'>Total {pricecart}</button> : ""}
+                    {cart && cart.length > 0 ? <button className='btn-showcart'>showcart</button> : ""} 
+                    {cart && cart.length > 0 && pricecart? <button className='btn-showcart'>Total {pricecart}</button> : ""}
               </div>
     </Navbar>
   );

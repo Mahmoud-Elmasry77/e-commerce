@@ -4,7 +4,7 @@ import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
 import Na from './na';
 import Home from './Home';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, json, Route, Routes } from 'react-router-dom';
 import Footer from './footer';
 import Notfound from './NotFound';
 import Woman from './woman/woman';
@@ -18,7 +18,7 @@ function App() {
     const[cartnav, setCartnav] = useState();
     const [render, setRender] = useState();
     const [num , setNum] = useState(0);
-
+    const [cart, setCart] = useState([]);
     window.onscroll = ()=>{
       setBlock("block")
       if(window.scrollY > 400){
@@ -47,22 +47,16 @@ function App() {
         setNav(true)
       }
     },[]);
-
-    useEffect(()=>{
-      if(window.localStorage.getItem("product")){
-          setData(JSON.parse (window.localStorage.getItem("price")));
-          setN(JSON.parse (window.localStorage.getItem("num")))
-      }else{}
-    },[])
+    
   return (
     <BrowserRouter>
     
     {loading? (<div class="loader"></div>) :
     ( <div className="App">
     <div style={{display:block}} className={showtop? "top" : "top show-top"} onClick={sTop}><FontAwesomeIcon icon={faArrowUp} size='2x'/></div>
-    <Na data = {data} n= {n} nav = {nav} cartnav={cartnav} setRender={setRender} render = {render} num={num} setNum={setNum}/>
+    <Na data = {data} n= {n} nav = {nav} cartnav={cartnav} setRender={setRender} render = {render} num={num} setNum={setNum} setCart= {setCart} cart={cart}/>
     <Routes>
-      <Route path='/e-commerce' element={<Home setData = {setData} setN= {setN} setCartnav={setCartnav} setRender={setRender} render = {render} num={num} setNum={setNum}/>}></Route>
+      <Route path='/e-commerce' element={<Home setData = {setData} setN= {setN} setCartnav={setCartnav} setRender={setRender} render = {render} num={num} setNum={setNum} setCart= {setCart} cart={cart}/>}></Route>
        <Route path='/woman' element={<Woman/>}></Route>
       <Route path='*' element={<Notfound/>}></Route>
      

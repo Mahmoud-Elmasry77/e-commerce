@@ -10,11 +10,10 @@ import "./product.css";
 import Na from "./na";
 import { Api } from "./useapi";
 
-function Products({setData, setN, setCartnav, setRender, render, num , setNum}){
+function Products({setData, setN, setCartnav, setRender, render, num , setNum, setCart, cart}){
    const [pro, loading, err] = Api("https://fakestoreapi.com/products")
     const [show , setshow] = useState(null);
     const [price, setPrice] = useState(null);
-    const [cart, setCart] = useState();
     const [local, setLocal] = useState([])
     const spanShow = useCallback((indix)=>{
           setshow(indix)
@@ -49,23 +48,24 @@ function Products({setData, setN, setCartnav, setRender, render, num , setNum}){
    };
 
    useEffect(()=>{
-    if( window.localStorage.getItem("product")){  
+    if( window.localStorage.getItem("product") && window.localStorage.getItem("price") && window.localStorage.getItem("num")){  
         setPrice(JSON.parse(window.localStorage.getItem("price")));
         setNum(JSON.parse(window.localStorage.getItem("num")));
         setLocal(JSON.parse(window.localStorage.getItem("product")))
-        setCartnav(cart)
+        setCartnav(cart);
+        setCart(cart)
         setCart(local);
        
-    }else{
-        setCart([])
-        setNum(0)
-        setPrice(null)
-    }
+        }
+        else {
+                setCart(cart)
+                setNum(0)
+                setPrice(null)
+            }
   },[])
 
 useEffect(()=>{
-    setData(price === null ? "00.0" : price),
-    setN(num),
+    setData(price === null ? "00.0" : price)
     setCartnav(cart)
 })
 
