@@ -51,6 +51,12 @@ function App() {
       setNav(true);
     }
   }, []);
+  useEffect(()=>{
+    if( window.localStorage.getItem("product") == []){
+        setData(null)
+        setNum(0)
+    }
+  })
 
   return (
     <BrowserRouter>
