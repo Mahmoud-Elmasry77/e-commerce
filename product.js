@@ -10,7 +10,7 @@ import "./product.css";
 import Na from "./na";
 import { Api } from "./useapi";
 
-function Products({setData, setN, setCartnav, setRender, render, num , setNum, setCart, cart}){
+function Products({setData, setCartnav, setRender, render, num , setNum, setCart, cart}){
    const [pro, loading, err] = Api("https://fakestoreapi.com/products")
     const [show , setshow] = useState(null);
     const [price, setPrice] = useState(null);
@@ -48,7 +48,7 @@ function Products({setData, setN, setCartnav, setRender, render, num , setNum, s
    };
 
    useEffect(()=>{
-    if( window.localStorage.getItem("product") && window.localStorage.getItem("price") && window.localStorage.getItem("num")){  
+    if( window.localStorage.getItem("product")&& window.localStorage.getItem("price") && window.localStorage.getItem("num")){  
         setPrice(JSON.parse(window.localStorage.getItem("price")));
         setNum(JSON.parse(window.localStorage.getItem("num")));
         setLocal(JSON.parse(window.localStorage.getItem("product")))
@@ -63,6 +63,10 @@ function Products({setData, setN, setCartnav, setRender, render, num , setNum, s
                 setPrice(null)
             }
   },[])
+  useEffect(()=>{
+    setPrice(JSON.parse(window.localStorage.getItem("price")));
+    setData((JSON.parse(window.localStorage.getItem("price"))));
+  },[render])
 
 useEffect(()=>{
     setData(price === null ? "00.0" : price)
