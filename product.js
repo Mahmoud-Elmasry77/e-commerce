@@ -67,12 +67,13 @@ function Products({setData, setCartnav, setRender, render, num , setNum, setCart
     setPrice(JSON.parse(window.localStorage.getItem("price")));
     setData((JSON.parse(window.localStorage.getItem("price"))));
   },[render])
+
   useEffect(()=>{
-    if( window.localStorage.getItem("product") == [""]){
+    if( window.localStorage.getItem("product") == []){
         setData(null)
         setNum(0)
     }
-  })
+  },[render])
 useEffect(()=>{
     setData(price === null ? "00.0" : price)
     setCartnav(cart)
