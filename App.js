@@ -51,14 +51,7 @@ function App() {
       setNav(true);
     }
   }, []);
-  useEffect(()=>{
-    if( cart.length == 0 || num == 0){
-        setData( null ? "00.0" : data)
-        setNum(0)
-        window.localStorage.setItem("price", JSON.stringify(0));
-        window.localStorage.setItem("num", JSON.stringify(0));
-    }
-  },[render])
+  
 
   return (
     <BrowserRouter>
