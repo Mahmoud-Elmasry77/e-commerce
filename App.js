@@ -52,11 +52,10 @@ function App() {
     }
   }, []);
   useEffect(()=>{
-    if( cart.length == 0 && num == 0){
+    if( cart.length == 0 || num == 0){
         setData( null ? "00.0" : data)
         setNum(0)
     }
-    console.log(cart)
   },[render])
 
   return (
