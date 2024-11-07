@@ -68,7 +68,7 @@ function Products({setData, setCartnav, setRender, render, num , setNum, setCart
     setData((JSON.parse(window.localStorage.getItem("price"))));
   },[render])
   useEffect(()=>{
-    if(window.localStorage.getItem("num")<=0){
+    if( num === 0){
         setData(null)
     }
   })
