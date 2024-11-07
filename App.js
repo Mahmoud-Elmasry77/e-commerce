@@ -52,8 +52,8 @@ function App() {
     }
   }, []);
   useEffect(()=>{
-    if( window.localStorage.getItem("product") == []){
-        setData(null)
+    if( window.localStorage.getItem("product") == [] || window.localStorage.getItem("num")==0){
+        setData("00.0")
         setNum(0)
     }
   })
