@@ -92,7 +92,12 @@
 .footer .form .p-3:hover{
     background-color: #3247bd;
 }
-
+@media (max-width:992px){
+    .footer .form input{
+        width: 100%;
+        font-size: 10px;
+    }
+}
 @media (max-width:768px){
     .footer{
         text-align: center;

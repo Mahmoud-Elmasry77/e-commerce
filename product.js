@@ -46,9 +46,10 @@ function Products({setData, setCartnav, setRender, render, num , setNum, setCart
         price : id.price,
     }]))
    };
-
    useEffect(()=>{
-    if( window.localStorage.getItem("product")&& window.localStorage.getItem("price") && window.localStorage.getItem("num")){  
+        const locaData = JSON.parse(window.localStorage.getItem("product"));
+
+    if(locaData && locaData.length >=1){  
         setPrice(JSON.parse(window.localStorage.getItem("price")));
         setNum(JSON.parse(window.localStorage.getItem("num")));
         setLocal(JSON.parse(window.localStorage.getItem("product")))
@@ -61,8 +62,12 @@ function Products({setData, setCartnav, setRender, render, num , setNum, setCart
                 setCart(cart)
                 setNum(0)
                 setPrice(null)
+                window.localStorage.setItem("num", JSON.stringify(num));
+                window.localStorage.setItem("price", null)
             }
-  },[])
+        },[]);
+
+
   useEffect(()=>{
     setPrice(JSON.parse(window.localStorage.getItem("price")));
     setData((JSON.parse(window.localStorage.getItem("price"))));

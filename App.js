@@ -6,7 +6,8 @@ import Na from './na';
 import Home from './Home';
 import Footer from './footer';
 import Notfound from './NotFound';
-import Woman from './woman/woman';
+import Women from './women/women';
+import Men from './Men/Men'
 import './App.css';
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(0);
   const [n, setN] = useState(0);
-  const [nav, setNav] = useState(true);
+  const [nav, setNav] = useState();
   const [cartnav, setCartnav] = useState([]);
   const [render, setRender] = useState(false);
   const [num, setNum] = useState(0);
@@ -44,15 +45,20 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    if (window.location.pathname !== "/e-commerce") {
-      setNav(false);
-    } else {
-      setNav(true);
-    }
-  }, []);
   
-
+  useEffect(()=>{
+    if(window.location.pathname === "/e-commerce"){
+      setNav(true)
+    }else{
+      setNav(false)
+    }
+  },[nav])
+  useEffect(()=>{
+    const locaData = JSON.parse(window.localStorage.getItem("product"));
+    if(locaData&& locaData.length <= 0){
+      setData("00.0")
+    }
+  },[])
   return (
     <BrowserRouter>
       {loading ? (
@@ -62,11 +68,13 @@ function App() {
           <div style={{ display: block }} className={showtop ? "top" : "top show-top"} onClick={sTop}>
             <FontAwesomeIcon icon={faArrowUp} size="2x" />
           </div>
-          <Na data={data} n={n} nav={nav} cartnav={cartnav} setRender={setRender} render={render} num={num} setNum={setNum} setCart={setCart} cart={cart} />
+          <Na data={data} n={n} setNav={setNav} nav={nav} cartnav={cartnav} setRender={setRender} render={render} num={num} setNum={setNum} setCart={setCart} cart={cart} />
           <Routes>
             <Route path="/e-commerce" element={<Home setData={setData} setN={setN} setCartnav={setCartnav} setRender={setRender} render={render} num={num} setNum={setNum} setCart={setCart} cart={cart} />} />
-            <Route path="/woman" element={<Woman />} />
+            <Route path="/women" element={<Women setCart={setCart} cart={cart} setNum={setNum}/>} />
+            <Route path='/men' element={<Men setCart={setCart} cart={cart} setNum={setNum}/>}/>
             <Route path="*" element={<Notfound />} />
+            <Route path='' element={<Na />}/>
           </Routes>
           <Footer />
         </div>

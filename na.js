@@ -6,7 +6,7 @@ import { faCartShopping, faUser, faBars, faXmark } from '@fortawesome/free-solid
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./na.css";
 
-function Na({ data, nav, setRender, render, num, setNum, setCart, cart }) {
+function Na({ data, nav, setNav, setRender, render, num, setNum, setCart, cart }) {
   const [show, setshow] = useState(false);
   const [showcart, setShowcart] = useState(true);
   const [pricecart, setpricecart] = useState(0);
@@ -41,24 +41,29 @@ function Na({ data, nav, setRender, render, num, setNum, setCart, cart }) {
   };
 
   useEffect(() => {
-    if (window.localStorage.getItem("product") && window.localStorage.getItem("price") && window.localStorage.getItem("num")) {
+    const locaData = JSON.parse(window.localStorage.getItem("product"));
+    if (locaData && locaData.length >=1) {
       setpricecart(parseFloat(window.localStorage.getItem("price")));
       setCart(JSON.parse(window.localStorage.getItem("product")));
       setNum(parseInt(window.localStorage.getItem("num")));
     } else {
       setCart(cart);
+      setNum(0);
+      setpricecart(null)
+      window.localStorage.setItem("num", JSON.stringify(num));
+      window.localStorage.setItem("price", null)
     }
   }, [render]);
 
   return (
-    <Navbar expand="lg" className={nav ? "navbar" : "navbar-woman"}>
+    <Navbar expand="lg" className={nav ? "navbar" : "navbar-other"}>
       <Navbar.Brand href="/e-commerce">DNK</Navbar.Brand>
       <Nav className="me-auto">
         <div className='links'>
           <div className='left-link'>
-            <NavLink className="nav-link" to="/e-commerce">EVERYTHING</NavLink>
-            <NavLink className="nav-link" to="/woman">WOMEN</NavLink>
-            <NavLink className="nav-link" to="/men">MEN</NavLink>
+            <NavLink onClick={()=>setNav(true)} className="nav-link" to="/e-commerce">EVERYTHING</NavLink>
+            <NavLink onClick={()=>setNav(false)} className="nav-link" to="/women">WOMEN</NavLink>
+            <NavLink onClick={()=>setNav(false)} className="nav-link" to="/men">MEN</NavLink>
             <NavLink className="nav-link" to="/accessories">ACCESSORIES</NavLink>
           </div>
           <div className='right-link'>
@@ -81,7 +86,7 @@ function Na({ data, nav, setRender, render, num, setNum, setCart, cart }) {
           <NavLink className=" user" to='user'><FontAwesomeIcon icon={faUser} /></NavLink>
           <div className='mo-links'>
             <NavLink className="xs-links" to="/e-commerce">EVERYTHING</NavLink>
-            <NavLink className="xs-links" to="/woman">WOMEN</NavLink>
+            <NavLink className="xs-links" to="/women">WOMEN</NavLink>
             <NavLink className="xs-links" to="/men">MEN</NavLink>
             <NavLink className="xs-links" to="/accessories">ACCESSORIES</NavLink>
             <div className='about-us'>
