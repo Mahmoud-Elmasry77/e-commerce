@@ -59,7 +59,7 @@ function Products({setData, setCartnav, setRender, render, num , setNum, setCart
        
         }
         else {
-                setCart(cart)
+                setCart([])
                 setNum(0)
                 setPrice(null)
                 window.localStorage.setItem("num", JSON.stringify(num));

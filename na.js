@@ -64,7 +64,7 @@ function Na({ data, nav, setNav, setRender, render, num, setNum, setCart, cart }
             <NavLink onClick={()=>setRender(!render)} className="nav-link" to="/e-commerce">EVERYTHING</NavLink>
             <NavLink onClick={()=>setNav(false)} className="nav-link" to="/women">WOMEN</NavLink>
             <NavLink onClick={()=>setNav(false)} className="nav-link" to="/men">MEN</NavLink>
-            <NavLink className="nav-link" to="/accessories">ACCESSORIES</NavLink>
+            <NavLink onClick={()=>setNav(false)} className="nav-link" to="/Acc">ACCESSORIES</NavLink>
           </div>
           <div className='right-link'>
             <NavLink className="nav-link" to="about">ABOUT</NavLink>
@@ -89,7 +89,7 @@ function Na({ data, nav, setNav, setRender, render, num, setNum, setCart, cart }
             <NavLink onClick={()=>setRender(!render)} className="xs-links" to="/e-commerce">EVERYTHING</NavLink>
             <NavLink onClick={()=>setNav(false)} className="xs-links" to="/women">WOMEN</NavLink>
             <NavLink onClick={()=>setNav(false)} className="xs-links" to="/men">MEN</NavLink>
-            <NavLink className="xs-links" to="/accessories">ACCESSORIES</NavLink>
+            <NavLink onClick={()=>setNav(false)} className="xs-links" to="/Acc">ACCESSORIES</NavLink>
             <div className='about-us'>
               <NavLink className="xs-links" to="about">ABOUT</NavLink>
               <NavLink className="xs-links " to="contactus">CONTACTUS</NavLink>

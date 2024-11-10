@@ -9,6 +9,7 @@ import Notfound from './NotFound';
 import Women from './women/women';
 import Men from './Men/Men'
 import './App.css';
+import Acc from './Accessories/Acc';
 
 function App() {
   const [showtop, setShowtop] = useState(false);
@@ -53,7 +54,7 @@ function App() {
       setNav(false)
     }
     
-  });
+  },[render],[nav]);
 
   useEffect(()=>{
     const locaData = JSON.parse(window.localStorage.getItem("product"));
@@ -77,9 +78,9 @@ function App() {
           <Routes>
             <Route path="/e-commerce" element={<Home setData={setData} setN={setN} setCartnav={setCartnav} setRender={setRender} render={render} num={num} setNum={setNum} setCart={setCart} cart={cart} />} />
             <Route path="/women" element={<Women setCart={setCart} cart={cart} setNum={setNum} num={num} setData={setData} setCartnav={setCartnav} render={render}/>} />
-            <Route path='/men' element={<Men setCart={setCart} cart={cart} setNum={setNum} num={num} setData={setData} setCartnav={setCartnav}/>}/>
+            <Route path='/men' element={<Men setCart={setCart} cart={cart} setNum={setNum} num={num} setData={setData} setCartnav={setCartnav} render={render}/>}/>
+            <Route path='/Acc' element={<Acc setCart={setCart} cart={cart} setNum={setNum} num={num} setData={setData} setCartnav={setCartnav} render={render}/>}/>
             <Route path="*" element={<Notfound />} />
-            <Route path='' element={<Na />}/>
           </Routes>
           <Footer />
         </div>
