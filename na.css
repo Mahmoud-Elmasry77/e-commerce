@@ -85,7 +85,7 @@
     color: #000;
   }
   .close-nav{
-    position: fixed;
+    position: absolute;
     top: 20px;
     right: 10px;
     width: 30px;

@@ -52,13 +52,18 @@ function App() {
     }else{
       setNav(false)
     }
-  },[nav])
+    
+  },[render],[nav]);
+
   useEffect(()=>{
     const locaData = JSON.parse(window.localStorage.getItem("product"));
     if(locaData&& locaData.length <= 0){
       setData("00.0")
+    }else{
+      setCart(locaData)
     }
-  },[])
+  },[render]);
+
   return (
     <BrowserRouter>
       {loading ? (
@@ -71,8 +76,8 @@ function App() {
           <Na data={data} n={n} setNav={setNav} nav={nav} cartnav={cartnav} setRender={setRender} render={render} num={num} setNum={setNum} setCart={setCart} cart={cart} />
           <Routes>
             <Route path="/e-commerce" element={<Home setData={setData} setN={setN} setCartnav={setCartnav} setRender={setRender} render={render} num={num} setNum={setNum} setCart={setCart} cart={cart} />} />
-            <Route path="/women" element={<Women setCart={setCart} cart={cart} setNum={setNum}/>} />
-            <Route path='/men' element={<Men setCart={setCart} cart={cart} setNum={setNum}/>}/>
+            <Route path="/women" element={<Women setCart={setCart} cart={cart} setNum={setNum} num={num} setData={setData} setCartnav={setCartnav} render={render}/>} />
+            <Route path='/men' element={<Men setCart={setCart} cart={cart} setNum={setNum} num={num} setData={setData} setCartnav={setCartnav}/>}/>
             <Route path="*" element={<Notfound />} />
             <Route path='' element={<Na />}/>
           </Routes>

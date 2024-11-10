@@ -61,7 +61,7 @@ function Na({ data, nav, setNav, setRender, render, num, setNum, setCart, cart }
       <Nav className="me-auto">
         <div className='links'>
           <div className='left-link'>
-            <NavLink onClick={()=>setNav(true)} className="nav-link" to="/e-commerce">EVERYTHING</NavLink>
+            <NavLink onClick={()=>setRender(!render)} className="nav-link" to="/e-commerce">EVERYTHING</NavLink>
             <NavLink onClick={()=>setNav(false)} className="nav-link" to="/women">WOMEN</NavLink>
             <NavLink onClick={()=>setNav(false)} className="nav-link" to="/men">MEN</NavLink>
             <NavLink className="nav-link" to="/accessories">ACCESSORIES</NavLink>
@@ -76,18 +76,19 @@ function Na({ data, nav, setNav, setRender, render, num, setNum, setCart, cart }
             </div>
             <NavLink className="nav-link user" to='user'><FontAwesomeIcon icon={faUser} /></NavLink>
           </div>
-        </div>
-        <div onClick={saidebar} className='close-nav'>
+          <div onClick={saidebar} className='close-nav'>
           <FontAwesomeIcon icon={faBars} />
         </div>
+      </div>
+
       </Nav>
       <div>
         <div className={show ? "aside-link" : "show aside-link"}>
           <NavLink className=" user" to='user'><FontAwesomeIcon icon={faUser} /></NavLink>
           <div className='mo-links'>
-            <NavLink className="xs-links" to="/e-commerce">EVERYTHING</NavLink>
-            <NavLink className="xs-links" to="/women">WOMEN</NavLink>
-            <NavLink className="xs-links" to="/men">MEN</NavLink>
+            <NavLink onClick={()=>setRender(!render)} className="xs-links" to="/e-commerce">EVERYTHING</NavLink>
+            <NavLink onClick={()=>setNav(false)} className="xs-links" to="/women">WOMEN</NavLink>
+            <NavLink onClick={()=>setNav(false)} className="xs-links" to="/men">MEN</NavLink>
             <NavLink className="xs-links" to="/accessories">ACCESSORIES</NavLink>
             <div className='about-us'>
               <NavLink className="xs-links" to="about">ABOUT</NavLink>
