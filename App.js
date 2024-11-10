@@ -53,7 +53,7 @@ function App() {
       setNav(false)
     }
     
-  },[render],[nav]);
+  });
 
   useEffect(()=>{
     const locaData = JSON.parse(window.localStorage.getItem("product"));
