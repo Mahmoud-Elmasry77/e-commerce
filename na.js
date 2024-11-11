@@ -67,8 +67,8 @@ function Na({ data, nav, setNav, setRender, render, num, setNum, setCart, cart }
             <NavLink onClick={()=>setNav(false)} className="nav-link" to="/Acc">ACCESSORIES</NavLink>
           </div>
           <div className='right-link'>
-            <NavLink className="nav-link" to="about">ABOUT</NavLink>
-            <NavLink className="nav-link" to="contactus">CONTACTUS</NavLink>
+            <NavLink onClick={()=>setRender(!render)} className="nav-link" to="about">ABOUT</NavLink>
+            <NavLink onClick={()=>setRender(!render)} className="nav-link" to="contactus">CONTACTUS</NavLink>
             <a onClick={Shcart} className="nav-link salary sm1">${data}</a>
             <div className='num-stor stor'>
               <div className='num'>{num}</div>
@@ -91,8 +91,8 @@ function Na({ data, nav, setNav, setRender, render, num, setNum, setCart, cart }
             <NavLink onClick={()=>setNav(false)} className="xs-links" to="/men">MEN</NavLink>
             <NavLink onClick={()=>setNav(false)} className="xs-links" to="/Acc">ACCESSORIES</NavLink>
             <div className='about-us'>
-              <NavLink className="xs-links" to="about">ABOUT</NavLink>
-              <NavLink className="xs-links " to="contactus">CONTACTUS</NavLink>
+              <NavLink onClick={()=>setRender(!render)} className="xs-links" to="about">ABOUT</NavLink>
+              <NavLink onClick={()=>setRender(!render)} className="xs-links " to="contactus">CONTACTUS</NavLink>
             </div>
           </div>
           <div onClick={saidebar} className={show ? "xmark" : "xmark-show"}>

@@ -48,7 +48,7 @@ function App() {
 
   
   useEffect(()=>{
-    if(window.location.pathname === "/e-commerce"){
+    if(window.location.pathname === "/e-commerce" || window.location.pathname === "/about" || window.location.pathname === "/contactus"){
       setNav(true)
     }else{
       setNav(false)
