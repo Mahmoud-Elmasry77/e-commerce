@@ -6,6 +6,7 @@ import Aboutheader from "./about-header";
 import Who from "./who";
 import Ourteam from "./our-team";
 import Followus from "./follow-us";
+import Offer from "./offer";
 function About(){
     return(
         <div>
@@ -13,6 +14,7 @@ function About(){
             <Who/>
             <Ourteam/>
             <Followus/>
+            <Offer/>
         </div>
 
     )

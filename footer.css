@@ -43,7 +43,7 @@
 }
 .footer .for-her-links ul li a:hover,
 .footer .for-him-links ul li a:hover{
-    color: #2b3988;
+    color: #28a9ff;
 }
 .footer .form{
     margin-left: 30px;
@@ -80,7 +80,7 @@
 }
 
 .footer .form .p-3{
-    background-color: #2b3988;
+    background-color: #28a9ff;
     color: #fff;
     border: none;
     width: 100%;
@@ -156,7 +156,7 @@
     font-size: 18px;
 }
 .last-footer .social-links ul li a svg:hover{
-    color: #2b3988
+    color: #28a9ff;
 }
 @media (max-width:720px){
     .last-footer p{

@@ -12,9 +12,8 @@
 .our-team .div-our-team{
     background-color: #00b3ff;
     width: 70px;
-    height: 2px;
-    margin-bottom: 30px;
-    margin-left: calc(50% - 40px);
+    height: 3px;
+    margin: 30px auto;
 }
 .our-team .h5-our-team{
     font-weight: bold;
