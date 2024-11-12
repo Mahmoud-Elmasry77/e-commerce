@@ -81,7 +81,7 @@
     background-color: #ffffff;
   }
   .navbar .navbar-brand{
-    margin: 0;
+    margin-left: 5px;
     color: #000;
   }
   .close-nav{
