@@ -9,7 +9,7 @@
 .who .div-who{
     background-color: #00b3ff;
     width: 70px;
-    height: 2px;
+    height: 3px;
 }
 .who h1{
     color: #000;
@@ -37,7 +37,7 @@
     .who .div-who{
         background-color: #00b3ff;
         width: 70px;
-        height: 2px;
-        margin: 0 0 0 calc(50% - 40px);
+        height: 3px;
+        margin: auto
     }
 }

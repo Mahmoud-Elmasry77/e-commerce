@@ -13,16 +13,17 @@ function Followus(){
                     <div className="social-links">
                             <ul>
                                 <li>
-                                    <Link><FontAwesomeIcon icon={faFacebookF}/></Link>
+                                    <Link to="https://www.facebook.com"><FontAwesomeIcon icon={faFacebookF}/></Link>
+                                    
                                 </li>
                                 <li>
-                                    <Link><FontAwesomeIcon icon={faXTwitter}/></Link>
+                                    <Link to="https://www.twitter.com"><FontAwesomeIcon icon={faXTwitter}/></Link>
                                 </li>
                                 <li>
-                                    <Link><FontAwesomeIcon icon={faInstagram}/></Link>
+                                    <Link to="https://www.instagram.com"><FontAwesomeIcon icon={faInstagram}/></Link>
                                 </li>
                                 <li>
-                                    <Link><FontAwesomeIcon icon={faGoogle}/></Link>
+                                    <Link to="https://www.google.com"><FontAwesomeIcon icon={faGoogle}/></Link>
                                 </li>
                             </ul>
                     </div>

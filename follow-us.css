@@ -8,27 +8,36 @@
     overflow: hidden;
 }
 
-
-.follow-us .div-follow-us{
-    margin: auto;
-    background-color: #f3f3f3;
-    width: 400px;
+.follow-us .over-lay{
     height: 100%;
 }
 
+.follow-us .div-follow-us{
+    margin: 0 auto;
+    background-color: #f3f3f3;
+    width: 400px;
+    height: 100%;
+    overflow: hidden;
+}
+
 .follow-us .div-follow-us .h1-follow-us{
-    font-size: 30px;
+    font-size: 35px;
     font-weight: bold;
     color: #000;
+    display: block;
+    width: 100%;
     text-align: center;
-    margin-top: 0;
+    margin-top: 150px;
 }
 
 .follow-us .social-links{
-    margin-left: -20px;
+    text-align: center;
+    width: 100%;
 }
 .follow-us .social-links ul {
     list-style: none;
+    margin-left: -32px;
+    margin-top:40px;
 }
 
 .follow-us .social-links ul li {
@@ -41,4 +50,41 @@
 .follow-us .social-links ul li a svg {
     color: #000;
     font-size: 20px;
+    transition: .3s;
+}
+.follow-us .social-links ul li a svg:hover{
+    color: #28a9ff;
+    font-size: 20px;
+}
+
+@media (max-width:768px){
+
+    .follow-us{
+        background-image: url("../imges/banner-05.jpg");
+        height: 400px;
+        background-position: center;
+        background-size: cover;
+        background-attachment: unset;
+        overflow: hidden;
+    }
+    .follow-us .div-follow-us{
+        width: 100%;
+    }
+    .follow-us .over-lay{
+        padding: 50px 50px ;
+    }
+    .follow-us .div-follow-us .h1-follow-us {
+        font-size: 30px;
+        font-weight: bold;
+        color: #000;
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 101px;
+    }
+    .follow-us .social-links ul li a svg {
+        color: #000;
+        font-size: 16px;
+        transition: .3s;
+    }
 }
