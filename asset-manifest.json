@@ -1,7 +1,8 @@
 {
   "files": {
-    "main.css": "/e-commerce/static/css/main.c59ed165.css",
-    "main.js": "/e-commerce/static/js/main.87c6d5a2.js",
+    "main.css": "/e-commerce/static/css/main.f24dfd3d.css",
+    "main.js": "/e-commerce/static/js/main.9634d63b.js",
+    "static/media/banner-05.jpg": "/e-commerce/static/media/banner-05.70c293f696ed3abbb8d2.jpg",
     "static/media/banner-03.jpg": "/e-commerce/static/media/banner-03.f1347d60f977c5d1eb9d.jpg",
     "static/media/banner-04.jpg": "/e-commerce/static/media/banner-04.c0c86c1a794ca5f2f6a0.jpg",
     "static/media/home-new-bg-free-img.jpg": "/e-commerce/static/media/home-new-bg-free-img.676c4ece681c03f7607b.jpg",
@@ -12,14 +13,20 @@
     "static/media/4.png": "/e-commerce/static/media/4.75e2d051ae27af63bc96.png",
     "static/media/footwear-free-img.jpg": "/e-commerce/static/media/footwear-free-img.792ea75bf476820fda49.jpg",
     "static/media/mango.png": "/e-commerce/static/media/mango.a715d5f842c01eabe1d4.png",
+    "static/media/team3-free-img.png": "/e-commerce/static/media/team3-free-img.00e4f0bfe06927960c2f.png",
+    "static/media/team5-free-img.png": "/e-commerce/static/media/team5-free-img.73ae9b14fd4b319e6234.png",
+    "static/media/team1-free-img.png": "/e-commerce/static/media/team1-free-img.e72046856cbe233f15fa.png",
+    "static/media/team4free-img.png": "/e-commerce/static/media/team4free-img.b05f553586c18ec73178.png",
+    "static/media/team2-free-img.png": "/e-commerce/static/media/team2-free-img.8c0f513770b0304c1b96.png",
+    "static/media/team6-free-img.png": "/e-commerce/static/media/team6-free-img.fbab9a37373bd86000d3.png",
     "index.html": "/e-commerce/index.html",
     "static/media/circle-arrow-left-solid.svg": "/e-commerce/static/media/circle-arrow-left-solid.41f46308c44e7cd68d5d.svg",
     "static/media/circle-arrow-right-solid.svg": "/e-commerce/static/media/circle-arrow-right-solid.db6ba08fd176c90a0dca.svg",
-    "main.c59ed165.css.map": "/e-commerce/static/css/main.c59ed165.css.map",
-    "main.87c6d5a2.js.map": "/e-commerce/static/js/main.87c6d5a2.js.map"
+    "main.f24dfd3d.css.map": "/e-commerce/static/css/main.f24dfd3d.css.map",
+    "main.9634d63b.js.map": "/e-commerce/static/js/main.9634d63b.js.map"
   },
   "entrypoints": [
-    "static/css/main.c59ed165.css",
-    "static/js/main.87c6d5a2.js"
+    "static/css/main.f24dfd3d.css",
+    "static/js/main.9634d63b.js"
   ]
 }
