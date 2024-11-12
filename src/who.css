@@ -1,0 +1,39 @@
+.who{
+    background-color: #fff;
+    margin-top: 50px;
+}
+.who .left{
+    padding: 50px;
+}
+.who .div-who{
+    background-color: #00b3ff;
+    width: 70px;
+    height: 5px;
+}
+.who h1{
+    color: #000;
+    opacity: 1;
+    animation: none;
+    margin-top:30px;
+}
+
+.who p{
+    margin-top: 21px;
+    color: #4b4b4b;
+    font-size: 13px;
+    font-weight: 100;
+}
+
+.who img{
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width:720px){
+    .who .div-who{
+        background-color: #00b3ff;
+        width: 70px;
+        height: 5px;
+        margin-left: 41%;
+    }
+}

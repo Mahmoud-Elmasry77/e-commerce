@@ -1,0 +1,19 @@
+.about-header{
+    background-image: url("/src/imges/banner-04.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.about-header .over-lay{
+    background-color: #2b398883;
+    width: 100%;
+    height: 85vh;
+    text-align: center;
+}
+
+.about-header .over-lay h1{
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+
