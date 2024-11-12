@@ -1,0 +1,44 @@
+
+.follow-us{
+    background-image: url("../imges/banner-05.jpg");
+    height: 400px;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+
+.follow-us .div-follow-us{
+    margin: auto;
+    background-color: #f3f3f3;
+    width: 400px;
+    height: 100%;
+}
+
+.follow-us .div-follow-us .h1-follow-us{
+    font-size: 30px;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    margin-top: 0;
+}
+
+.follow-us .social-links{
+    margin-left: -20px;
+}
+.follow-us .social-links ul {
+    list-style: none;
+}
+
+.follow-us .social-links ul li {
+    display: inline-block;
+    margin-left: 50px;
+}
+.follow-us .social-links ul li:first-child{
+    margin-left: 0;
+}
+.follow-us .social-links ul li a svg {
+    color: #000;
+    font-size: 20px;
+}
