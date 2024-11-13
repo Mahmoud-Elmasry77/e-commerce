@@ -1,0 +1,84 @@
+.listen{
+    border-bottom: 1px solid #ccc;
+    margin: 70px 0;
+    padding-bottom: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.listen .row{
+    align-items: center;
+}
+.listen .h1-listen{
+    color: #000;
+    margin-top: 0;
+}
+
+.listen .p-listen{
+    color: #707070;
+    font-weight: normal;
+    font-size: 15px;
+    margin-top: 20px;
+    line-height: 2;
+}
+
+.listen .form-listen{
+    background-color: #fff;
+    width: 100%;
+    border-radius: 5px;
+    padding: 30px;
+    box-shadow: 1px 1px 8px #ccc;
+}
+.listen .form-listen input{
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.listen .form-listen input:focus,
+.listen .form-listen textarea:focus{
+    border-style: dotted;
+    outline: none;
+}
+
+.listen .form-listen textarea{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.listen .form-listen .submit-listen{
+    display: block;
+    width: 200px;
+    background-color: #28a9ff;
+    color: #fff;
+    transition: .3s;
+}
+
+.listen .form-listen .submit-listen:hover{
+    display: block;
+    width: 200px;
+    background-color: #3247bd;
+    color: #fff;
+}
+
+@media  (max-width:960px){
+    .listen .p{
+        text-align: center;
+    }
+    .listen .h1-listen{
+        text-align: center;
+    }
+    .h6-listen{
+        display: block;
+        text-align: center;
+    }
+    .listen .form-listen .submit-listen{
+        display: block;
+        width: 100%;
+        background-color: #28a9ff;
+        color: #fff;
+        transition: .3s;
+        margin-bottom: 0;
+    }
+}

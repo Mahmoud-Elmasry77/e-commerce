@@ -30,9 +30,16 @@
     margin-bottom: 10px;
     background-color: #fff;
     border-radius: 5px;
-    box-shadow: 1px 1px 8px #000;
+    transition: .5s;
 }
 
+.caption-help:hover{
+    padding: 25px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 1px 1px 8px #ccc;
+}
 .caption-help .help-h3{
     font-weight: bold;
 }
@@ -56,7 +63,6 @@
         margin-bottom: 10px;
         background-color: #fff;
         border-radius: 5px;
-        box-shadow: 1px 1px 5px  #000;
     }
     
     .caption-help .help-h3{

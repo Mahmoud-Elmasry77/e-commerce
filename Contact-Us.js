@@ -1,6 +1,7 @@
 import react from "react";
 import ContactHeader from "./contact-header";
 import Help from "./help";
+import Listen from "./listen";
 
 
 function ContactUs(){
@@ -8,6 +9,7 @@ function ContactUs(){
         <div>
             <ContactHeader/>
             <Help/>
+            <Listen/>
         </div>
     )
 }
