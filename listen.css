@@ -81,4 +81,12 @@
         transition: .3s;
         margin-bottom: 0;
     }
+    .listen .form-listen .submit-listen:hover{
+        display: block;
+        width: 100%;
+        background-color: #3247bd;
+        color: #fff;
+        transition: .3s;
+        margin-bottom: 0;
+    }
 }
