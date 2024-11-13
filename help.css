@@ -1,0 +1,79 @@
+.help{
+    text-align: center;
+    margin-top: 100px;
+}
+
+.help p{
+    color: #000;
+    font-size: 20px;
+}
+
+.help .h1-help{
+    color: #000;
+    text-align: center;
+    width: 100%;
+    font-size: 35px;
+    margin-top: 0;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.help .div-help{
+    background-color: #000;
+    width: 50px;
+    height: 2px;
+    margin: 0 auto 50px;
+}
+
+.caption-help{
+    padding: 25px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 1px 1px 8px #000;
+}
+
+.caption-help .help-h3{
+    font-weight: bold;
+}
+
+.caption-help p{
+    font-weight: normal;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.caption-help .caption-help-p{
+    font-weight: normal;
+    font-size: 20px;
+    margin-bottom: 0;
+    color: #28a9ff;
+}
+
+@media (min-width:768px) and (max-width:991px){
+    .caption-help{
+        padding: 25px;
+        margin-bottom: 10px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 1px 1px 5px  #000;
+    }
+    
+    .caption-help .help-h3{
+        font-weight: bold;
+        font-size: 20px;
+    }
+    
+    .caption-help p{
+        font-weight: normal;
+        font-size: 10px;
+        margin-top: 10px;
+    }
+    
+    .caption-help .caption-help-p{
+        font-weight: normal;
+        font-size: 15px;
+        margin-bottom: 0;
+        color: #28a9ff;
+    }
+}

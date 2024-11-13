@@ -11,6 +11,7 @@ import Men from './Men/Men'
 import './App.css';
 import Acc from './Accessories/Acc';
 import About from './About/About';
+import ContactUs from './contact-Us/Contact-Us';
 
 function App() {
   const [showtop, setShowtop] = useState(false);
@@ -82,6 +83,7 @@ function App() {
             <Route path='/men' element={<Men setCart={setCart} cart={cart} setNum={setNum} num={num} setData={setData} setCartnav={setCartnav} render={render}/>}/>
             <Route path='/Acc' element={<Acc setCart={setCart} cart={cart} setNum={setNum} num={num} setData={setData} setCartnav={setCartnav} render={render}/>}/>
             <Route path='/about' element={<About/>}/>
+            <Route path='/contactus' element={<ContactUs/>}/>
             <Route path="*" element={<Notfound />} />
           </Routes>
           <Footer />
