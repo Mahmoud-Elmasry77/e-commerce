@@ -3,6 +3,12 @@ import { Col, Container, Row ,Carousel } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Header.css';
 function Header(){
+    const ShopNow = ()=>{
+        window.scrollTo({
+            top:1400,
+            behavior:"smooth"
+        })
+    }
     return(
         <header>
             <div className="over-lay">
@@ -14,7 +20,7 @@ function Header(){
                         </div>
                         <div className="buttons">
                             <Col xs={12} md={12} lg={4}>
-                                <button className="p-3 shop">SHOP NOW</button>
+                                <button onClick={ShopNow} className="p-3 shop">SHOP NOW</button>
                                 <button className="p-3 find">FIND MORE</button>
                             </Col>
                         </div>
