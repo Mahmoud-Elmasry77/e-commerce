@@ -1,5 +1,5 @@
 import { Nav, Navbar } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faUser, faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -36,7 +36,7 @@ function Na({ data, nav, setNav, setRender, render, num, setNum, setCart, cart }
     window.localStorage.setItem("num", JSON.stringify(num - 1));
     window.localStorage.setItem("price", JSON.stringify(parseFloat((newTotalPrice).toFixed(2))));
 
-    // إجبار الصفحة على إعادة العرض بدون إعادة التحميل
+    
     setRender(!render);
   };
 
@@ -115,8 +115,8 @@ function Na({ data, nav, setNav, setRender, render, num, setNum, setCart, cart }
             <button onClick={() => Claerpro(indix)}><FontAwesomeIcon icon={faXmark} /></button>
           </div>
         )}
-        {cart && cart.length > 0 ? <button className='btn-showcart'>showcart</button> : ""} 
-        {cart && cart.length > 0 && pricecart ? <button className='btn-showcart'>Total ${pricecart.toFixed(2)}</button> : ""}
+        {cart && cart.length > 0 ? <Link  to="/show-cart" className='btn-showcart'>showcart</Link> : ""} 
+        {cart && cart.length > 0 && pricecart ? <Link  to="/show-cart" className='btn-showcart'>Total ${pricecart.toFixed(2)}</Link> : ""}
       </div>
     </Navbar>
   );

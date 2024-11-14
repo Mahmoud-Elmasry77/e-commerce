@@ -29,8 +29,9 @@
 }
 
 .product-title {
-  font-size: 15px;
+  font-size: 25px;
   font-weight: normal;
+  width: 100%;
   color:#4b4b4b;
 }
 
@@ -88,7 +89,7 @@
 }
 .show-cart-page table{
   margin: auto;
-  width: 100%;
+  width: 80%;
 }
 .show-cart-page table tr th,
 .show-cart-page table tr td{
@@ -99,3 +100,13 @@
   padding: 10px;
 }
 
+@media(max-width:720px){
+  .product-title {
+    font-size: 8px;
+    font-weight: normal;
+    color: #4b4b4b;
+    width: 100%;
+    overflow: hidden;
+    text-wrap: nowarp;
+}
+}

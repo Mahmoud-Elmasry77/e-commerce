@@ -28,7 +28,7 @@ function Products({setData, setCartnav, setRender, render, num , setNum, setCart
     setPrice(parseFloat((id.price + price).toFixed(2)));
 
     setNum(num + 1);
-
+    setRender(!render)
     setCart([...cart , {
         id : id.id,
         title : id.title,
@@ -54,8 +54,7 @@ function Products({setData, setCartnav, setRender, render, num , setNum, setCart
         setNum(JSON.parse(window.localStorage.getItem("num")));
         setLocal(JSON.parse(window.localStorage.getItem("product")))
         setCartnav(cart);
-        setCart(cart)
-        setCart(local);
+        setCart(JSON.parse(window.localStorage.getItem("product")));
        
         }
         else {
@@ -69,6 +68,7 @@ function Products({setData, setCartnav, setRender, render, num , setNum, setCart
 
 
     useEffect(()=>{
+        setLocal(JSON.parse(window.localStorage.getItem("product")))
         setPrice(JSON.parse(window.localStorage.getItem("price")));
         setData((JSON.parse(window.localStorage.getItem("price"))));
     },[render])
