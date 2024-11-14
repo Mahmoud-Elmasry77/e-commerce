@@ -11,7 +11,7 @@ function Footer(){
     const [email, setEmail] = useState("");
     const [valid , setValid] = useState(true);
     const validEmail = (email)=>{
-        const reg = /^\w+[^!@#$%^&*()=+"?><;,`.]@\w{2,}\.\w{2,}/ig;
+        const reg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return reg.test(email);
                 }
     const chang = (e)=>{ 
