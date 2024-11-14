@@ -28,7 +28,7 @@ function Listen(){
             
             console.log({ name, subject, email, message });
            
-            alert('Good Send Your Message');
+            alert('Good Send Your Messages');
            
             setName('');
             setSubject('');
