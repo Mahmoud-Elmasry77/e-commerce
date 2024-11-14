@@ -25,11 +25,11 @@ function Listen(){
         setErrors(validationErrors);
 
         if (Object.keys(validationErrors).length === 0) {
-            // إرسال البيانات
+            
             console.log({ name, subject, email, message });
-            // يمكنك إضافة منطق الإرسال هنا
-            alert('تم إرسال الرسالة بنجاح!');
-            // إعادة تعيين الحقول بعد الإرسال
+           
+            
+           
             setName('');
             setSubject('');
             setEmail('');
