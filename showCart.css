@@ -101,6 +101,10 @@
 }
 
 @media(max-width:720px){
+  .show-cart-page table{
+    margin: auto;
+    width: 100%;
+  }
   .product-title {
     font-size: 8px;
     font-weight: normal;
