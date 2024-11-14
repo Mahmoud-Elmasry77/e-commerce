@@ -12,6 +12,7 @@ import './App.css';
 import Acc from './Accessories/Acc';
 import About from './About/About';
 import ContactUs from './contact-Us/Contact-Us';
+import ShowCart from './show cart/show-cart';
 
 function App() {
   const [showtop, setShowtop] = useState(false);
@@ -63,10 +64,10 @@ function App() {
     if(locaData&& locaData.length <= 0){
       setData("00.0")
     }else{
-      setCart(locaData)
+      setCart(locaData);
     }
   },[render]);
-
+  
   return (
     <BrowserRouter>
       {loading ? (
@@ -84,6 +85,7 @@ function App() {
             <Route path='/Acc' element={<Acc setCart={setCart} cart={cart} setNum={setNum} num={num} setData={setData} setCartnav={setCartnav} render={render}/>}/>
             <Route path='/about' element={<About/>}/>
             <Route path='/contactus' element={<ContactUs/>}/>
+            <Route path='/show-cart' element={<ShowCart cart={cart} setCart={setCart} num={num} setNum={setNum} setData={setData} data={data} setRender={setRender} render={render}/>}/>
             <Route path="*" element={<Notfound />} />
           </Routes>
           <Footer />
