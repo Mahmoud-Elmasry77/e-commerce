@@ -67,3 +67,34 @@
   .btn-count:hover{
     background-color: #3247bd;
   }
+
+  @media (max-width : 900px){
+    .product-details img {
+        width: 150px;
+        height:200px;
+        margin-bottom: 50px;
+      }
+
+     .price-product-detalis {
+        font-size: 20px;
+        font-weight: bold;
+        color: #000;
+        display: block;
+        margin-bottom: 50px;
+      }
+
+      .btn-count {
+        background-color: #28a9ff;
+        color: #fff;
+        font-size:10px;
+        font-weight: bold;
+        padding: 2px 10px;
+        border: none;
+        margin: 0 40px;
+        transition: .3s;
+      }
+
+    .count-product-detalis {
+      font-size: 15px;
+    }
+  }
