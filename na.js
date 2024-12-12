@@ -21,6 +21,7 @@ function Na({ data, nav, setNav, setRender, render, num, setNum, setCart, cart }
     setRender(!render);
   };
 
+
   const Claerpro = (indix) => {
     const updatedCart = [...cart];
     const productToRemove = updatedCart[indix];
@@ -53,7 +54,7 @@ function Na({ data, nav, setNav, setRender, render, num, setNum, setCart, cart }
       window.localStorage.setItem("num", JSON.stringify(num));
       window.localStorage.setItem("price", null)
     }
-  }, [render]);
+  },[render]);
 
   return (
     <Navbar expand="lg" className={nav ? "navbar" : "navbar-other"}>
@@ -105,6 +106,7 @@ function Na({ data, nav, setNav, setRender, render, num, setNum, setCart, cart }
           <p className='p-cart'> Shopping Cart</p>
           <div onClick={Shcart} className='close-cart'><FontAwesomeIcon icon={faXmark} /></div>
         </div>
+        
         {cart && cart.map((pro, indix) =>
           <div className='pro-nav' key={pro.id}>
             <div className='pro-nav-caption'>

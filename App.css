@@ -57,7 +57,19 @@
   .loader:after {
     transform: rotate(60deg);
   }
-  
+  .added{
+    width: 200px;
+    padding: 20px;
+    background: #2b3988;
+    color: #fff;
+    text-align: center;
+    position: fixed;
+    bottom: 20px;
+    left: calc(50% - 100px);
+    font-size: 20px;
+    display: none;
+    z-index: 9999;
+  }
   @keyframes l26 {
     100% {transform:rotate(1turn)}
   }

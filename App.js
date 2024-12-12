@@ -13,6 +13,7 @@ import Acc from './Accessories/Acc';
 import About from './About/About';
 import ContactUs from './contact-Us/Contact-Us';
 import ShowCart from './show cart/show-cart';
+import ProductDetails from './ProductDetails';
 
 function App() {
   const [showtop, setShowtop] = useState(false);
@@ -52,12 +53,12 @@ function App() {
   
   useEffect(()=>{
     if(window.location.pathname === "/e-commerce" || window.location.pathname === "/about" || window.location.pathname === "/contactus"){
-      setNav(true)
+      setNav(true);
     }else{
-      setNav(false)
+      setNav(false);
     }
     
-  },[render],[nav]);
+  });
 
   useEffect(()=>{
     const locaData = JSON.parse(window.localStorage.getItem("product"));
@@ -65,6 +66,7 @@ function App() {
       setData("00.0")
     }else{
       setCart(locaData);
+      setData(window.localStorage.getItem("price"))
     }
   },[render]);
   
@@ -79,13 +81,14 @@ function App() {
           </div>
           <Na data={data} n={n} setNav={setNav} nav={nav} cartnav={cartnav} setRender={setRender} render={render} num={num} setNum={setNum} setCart={setCart} cart={cart} />
           <Routes>
-            <Route path="/e-commerce" element={<Home setData={setData} setN={setN} setCartnav={setCartnav} setRender={setRender} render={render} num={num} setNum={setNum} setCart={setCart} cart={cart} />} />
-            <Route path="/women" element={<Women setCart={setCart} cart={cart} setNum={setNum} num={num} setData={setData} setCartnav={setCartnav} render={render}/>} />
+            <Route path="/e-commerce" element={<Home setData={setData} setN={setN} setCartnav={setCartnav} setRender={setRender} render={render} num={num} setNum={setNum} setCart={setCart} cart={cart} />}/>
+            <Route path="/women" element={<Women setCart={setCart} cart={cart} setNum={setNum} num={num} setData={setData} setCartnav={setCartnav} render={render}/>}></Route>
             <Route path='/men' element={<Men setCart={setCart} cart={cart} setNum={setNum} num={num} setData={setData} setCartnav={setCartnav} render={render}/>}/>
             <Route path='/Acc' element={<Acc setCart={setCart} cart={cart} setNum={setNum} num={num} setData={setData} setCartnav={setCartnav} render={render}/>}/>
             <Route path='/about' element={<About/>}/>
             <Route path='/contactus' element={<ContactUs/>}/>
             <Route path='/show-cart' element={<ShowCart cart={cart} setCart={setCart} num={num} setNum={setNum} setData={setData} data={data} setRender={setRender} render={render}/>}/>
+            <Route path='/product/:id' element={<ProductDetails setCart={setCart} cart={cart} setNum={setNum} num={num} setRender={setRender} render={render}/>}/>
             <Route path="*" element={<Notfound />} />
           </Routes>
           <Footer />
