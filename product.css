@@ -17,7 +17,7 @@
     color: #000;
     text-decoration: none;
 }
-.link-product:hover a{
+.link-product:hover .a{
     opacity: 1;
     visibility: visible;
 }
@@ -44,7 +44,7 @@
     font-size: 12px;
     margin-top: 0;
 }
-.link-product a{
+.link-product .a{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,7 +60,7 @@
     opacity: 0;
     transition: .5s;
 }
-.link-product a svg{
+.link-product .a svg{
   font-size:20px;
   color: #000;
 }
@@ -112,7 +112,7 @@
     .link-product .price{
         font-size: 15px;
     }
-    .link-product a{
+    .link-product .a{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -128,7 +128,7 @@
         opacity: 0;
         transition: .5s;
     }
-    .link-product a svg{
+    .link-product .a svg{
       font-size:15px;
       color: #000;
     }

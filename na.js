@@ -6,18 +6,29 @@ import { faCartShopping, faUser, faBars, faXmark } from '@fortawesome/free-solid
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./na.css";
 
-function Na({ data, nav, setNav, setRender, render, num, setNum, setCart, cart }) {
+function Na({ data, nav, setNav, setRender, render, num, setNum, setCart, cart, cartnav }) {
   const [show, setshow] = useState(false);
   const [showcart, setShowcart] = useState(true);
   const [pricecart, setpricecart] = useState(0);
 
   const saidebar = () => {
-    setshow(!show);
+
+    if(show === false){
+      setshow(true)
+    }else{
+      setshow(false)
+    }
     setRender(!render);
+    setNav(false)
   };
 
   const Shcart = () => {
-    setShowcart(!showcart);
+    if(showcart === true){
+      setShowcart(false)
+    }else{
+      setShowcart(true)
+    }
+    setNav(false)
     setRender(!render);
   };
 
@@ -87,13 +98,13 @@ function Na({ data, nav, setNav, setRender, render, num, setNum, setCart, cart }
         <div className={show ? "aside-link" : "show aside-link"}>
           <NavLink className=" user" to='user'><FontAwesomeIcon icon={faUser} /></NavLink>
           <div className='mo-links'>
-            <NavLink onClick={()=>setRender(!render)} className="xs-links" to="/e-commerce">EVERYTHING</NavLink>
-            <NavLink onClick={()=>setNav(false)} className="xs-links" to="/women">WOMEN</NavLink>
-            <NavLink onClick={()=>setNav(false)} className="xs-links" to="/men">MEN</NavLink>
-            <NavLink onClick={()=>setNav(false)} className="xs-links" to="/Acc">ACCESSORIES</NavLink>
+            <NavLink onClick={()=>saidebar()} className="xs-links" to="/e-commerce">EVERYTHING</NavLink>
+            <NavLink onClick={()=>saidebar()} className="xs-links" to="/women">WOMEN</NavLink>
+            <NavLink onClick={()=>saidebar()} className="xs-links" to="/men">MEN</NavLink>
+            <NavLink onClick={()=>saidebar()} className="xs-links" to="/Acc">ACCESSORIES</NavLink>
             <div className='about-us'>
-              <NavLink onClick={()=>setRender(!render)} className="xs-links" to="/about">ABOUT</NavLink>
-              <NavLink onClick={()=>setRender(!render)} className="xs-links " to="/contactus">CONTACTUS</NavLink>
+              <NavLink onClick={()=>saidebar()} className="xs-links" to="/about">ABOUT</NavLink>
+              <NavLink onClick={()=>saidebar()} className="xs-links " to="/contactus">CONTACTUS</NavLink>
             </div>
           </div>
           <div onClick={saidebar} className={show ? "xmark" : "xmark-show"}>
@@ -117,7 +128,7 @@ function Na({ data, nav, setNav, setRender, render, num, setNum, setCart, cart }
             <button onClick={() => Claerpro(indix)}><FontAwesomeIcon icon={faXmark} /></button>
           </div>
         )}
-        {cart && cart.length > 0 ? <Link  to="/show-cart" className='btn-showcart'>showcart</Link> : ""} 
+        {cart && cart.length > 0 ? <Link  to="/show-cart" className='btn-showcart' onClick={()=>Shcart()}>showcart</Link> : ""} 
         {cart && cart.length > 0 && pricecart ? <Link  to="/show-cart" className='btn-showcart'>Total ${pricecart.toFixed(2)}</Link> : ""}
       </div>
     </Navbar>
