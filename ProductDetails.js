@@ -28,7 +28,7 @@ function ProductDetails({setCart, cart, setNum, num, setRender, render, setData}
             if(existingProduct){
                 if(count >= 1){
                     setRender(!render)
-                    const updatedCart = cart.map((item)=> item.id === pro.id ? {...item , count : item.count + count, price : item.price + (pro.price* count), setprice : setPrice(item.price + (pro.price * count))} : item)
+                    const updatedCart = cart.map((item)=> item.id === pro.id ? {...item , count : item.count + count, price : item.price + (pro.price * count), setprice : setPrice(item.price + (pro.price * count))} : item)
                     setCart(updatedCart)
                     window.localStorage.setItem("product" , JSON.stringify(updatedCart))
                     window.localStorage.setItem("price", JSON.stringify(parseFloat(((pro.price * count)  + price).toFixed(2))))

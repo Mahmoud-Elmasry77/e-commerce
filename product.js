@@ -14,7 +14,7 @@ function Products({setData, setCartnav, setRender, render, num , setNum, setCart
     const [show , setshow] = useState(null);
     const [price, setPrice] = useState(null);
     const [local, setLocal] = useState([]);
-    const [itemprice, setItemPrice] = useState(null)
+    // const [itemprice, setItemPrice] = useState(null)
     const spanShow = useCallback((indix)=>{
           setshow(indix)
     }) 
@@ -36,7 +36,7 @@ function Products({setData, setCartnav, setRender, render, num , setNum, setCart
         setRender(!render)
         // up data product
         const updatedCart = cart.map((item) => item.id === id.id ?
-         { ...item, count: item.count + 1, price: item.price + id.price, setprice : setPrice(item.price + id.price) }
+         { ...item, count: item.count + 1, price: parseFloat((item.price + id.price).toFixed(2)), setprice : setPrice(parseFloat((item.price + id.price).toFixed(2))) }
                 : item
         );
         setCart(updatedCart)
