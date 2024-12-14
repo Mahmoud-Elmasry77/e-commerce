@@ -24,12 +24,13 @@ function Na({ data, nav, setNav, setRender, render, num, setNum, setCart, cart, 
 
   const Shcart = () => {
     if(showcart === true){
-      setShowcart(false)
+      setShowcart(false);
+      setNav(false);
+      setRender(!render);
     }else{
       setShowcart(true)
+      setNav(false)
     }
-    setNav(false)
-    setRender(!render);
   };
 
 
@@ -119,7 +120,7 @@ function Na({ data, nav, setNav, setRender, render, num, setNum, setCart, cart, 
         </div>
         
         {cart && cart.map((pro, indix) =>
-          <div className='pro-nav' key={pro.id}>
+          <div className='pro-nav' key={`${pro.id}-${indix}`}>
             <div className='pro-nav-caption'>
               <img src={pro.image} alt={pro.title} />
               <h4>{pro.title}</h4>
@@ -129,7 +130,7 @@ function Na({ data, nav, setNav, setRender, render, num, setNum, setCart, cart, 
           </div>
         )}
         {cart && cart.length > 0 ? <Link  to="/show-cart" className='btn-showcart' onClick={()=>Shcart()}>showcart</Link> : ""} 
-        {cart && cart.length > 0 && pricecart ? <Link  to="/show-cart" className='btn-showcart'>Total ${pricecart.toFixed(2)}</Link> : ""}
+        {cart && cart.length > 0 && pricecart ? <Link  to="/show-cart" className='btn-showcart' onClick={()=>Shcart()}>Total ${pricecart.toFixed(2)}</Link> : ""}
       </div>
     </Navbar>
   );

@@ -4,7 +4,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import axios from "axios";
 import "./productDetails.css";
 
-function ProductDetails({setCart, cart, setNum, num, setRender, render, setData, data, setCartnav, setProcount}) {
+function ProductDetails({setCart, cart, setNum, num, setRender, render, setData}) {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
     const [price, setPrice] = useState(null);
@@ -18,8 +18,8 @@ function ProductDetails({setCart, cart, setNum, num, setRender, render, setData,
 
     const Addpro = (pro)=>{
         setRender(!render);
-        setProcount(count);
-
+        // setProcount(count);
+        const Procount = 1;
         const countPrice = parseFloat(pro.price) * count;
 
             if(count > 1){
@@ -28,34 +28,39 @@ function ProductDetails({setCart, cart, setNum, num, setRender, render, setData,
                     title : pro.title,
                     image : pro.image,
                     price : pro.price * count,
+                    count : 1 * count,
                 }]);
                 
                 setPrice(parseFloat((countPrice + price).toFixed(2)))
                 setNum(count + num);
                 window.localStorage.setItem("num", JSON.stringify(num + count));
-                 window.localStorage.setItem("price", JSON.stringify(parseFloat((countPrice + price).toFixed(2))));
+                window.localStorage.setItem("price", JSON.stringify(parseFloat((countPrice + price).toFixed(2))));
             }else{
                 setCart([...cart, {
                     id : pro.id,
                     title : pro.title,
                     image : pro.image,
                     price : pro.price,
+                    count : 1,
                 }]);
+
                 setPrice(parseFloat((pro.price + price).toFixed(2)));
                 setNum(num + 1);
                 window.localStorage.setItem("num", JSON.stringify(num + 1));
                 window.localStorage.setItem("price", JSON.stringify(parseFloat((pro.price + price).toFixed(2))));
             }
             window.localStorage.setItem("product", JSON.stringify([...cart, count > 1 ? {
-                     id : pro.id,
+                    id : pro.id,
                     title : pro.title,
                     image : pro.image,
                     price : pro.price * count,
+                    count : 1 * count,
                 }: {
                     id : pro.id,
                     title : pro.title,
                     image : pro.image,
                     price : pro.price ,
+                    count : 1 ,
                 }
             ])); 
     };
@@ -67,7 +72,7 @@ function ProductDetails({setCart, cart, setNum, num, setRender, render, setData,
         setPrice(JSON.parse(window.localStorage.getItem("price")));
         setNum(JSON.parse(window.localStorage.getItem("num")));
         setCart(JSON.parse(window.localStorage.getItem("product")))
-        setCartnav(cart);
+        setCart(cart);
     
         }
         else {
@@ -89,7 +94,7 @@ function ProductDetails({setCart, cart, setNum, num, setRender, render, setData,
 
     useEffect(()=>{
         setData(price === null ? "00.0" : price)
-        setCartnav(cart)
+        setCart(cart);
     });
 
     return (

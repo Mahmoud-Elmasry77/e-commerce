@@ -25,8 +25,9 @@ function App() {
   const [render, setRender] = useState(false);
   const [num, setNum] = useState(0);
   const [cart, setCart]= useState([])
-  const [procount, setProcount] = useState()
+  const [block, setBlock] = useState(true)
   window.onscroll = () => {
+    setBlock(false)
     if (window.scrollY > 400) {
       setShowtop(false);
     } else {
@@ -65,7 +66,7 @@ function App() {
     }else{
       setData("00.0")
     }
-  },[]);
+  },[render]);
   
   return (
     <BrowserRouter>
@@ -74,7 +75,7 @@ function App() {
       ) : (
         <div className="App">
 
-          <div style={{display : "block"}}  className={showtop ? "top" : "top show-top"} onClick={sTop}>
+          <div style={{display : block}}  className={showtop ? "top" : "top show-top"} onClick={sTop}>
             <FontAwesomeIcon icon={faArrowUp} size="2x" />
           </div>
 
@@ -93,9 +94,9 @@ function App() {
 
                 <Route path='/contactus' element={<ContactUs/>}/>
 
-                <Route path='/show-cart' element={<ShowCart cart={cart} setCart={setCart} num={num} setNum={setNum} setData={setData} data={data} setRender={setRender} render={render} procount={procount}/>}/>
+                <Route path='/show-cart' element={<ShowCart cart={cart} setCart={setCart} num={num} setNum={setNum} setData={setData} data={data} setRender={setRender} render={render}/>}/>
 
-                <Route path='/product/:id' element={<ProductDetails setCart={setCart} cart={cart} setNum={setNum} num={num} setRender={setRender} render={render} setData={setData} data={data} setCartnav={setCartnav} setProcount={setProcount}/>}/>
+                <Route path='/product/:id' element={<ProductDetails setCart={setCart} cart={cart} setNum={setNum} num={num} setRender={setRender} render={render} setData={setData} data={data} setCartnav={setCartnav} />}/>
 
               <Route path="*" element={<Notfound />} />
             </Routes>

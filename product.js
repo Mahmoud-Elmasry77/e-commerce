@@ -27,16 +27,25 @@ function Products({setData, setCartnav, setRender, render, num , setNum, setCart
     setPrice(parseFloat((id.price + price).toFixed(2)));
     setNum(num + 1);
     // التحقق مما إذا كان المنتج موجودًا في السلة
-    const existingProduct = cart.find((item) => item.id === pro.id);
-    if(existingProduct){
-        const updatedCart = cart.map((item)=> item.id === id.id ? {...item , price : item.price + id.price} : item);
+    const existingProduct = cart.find((item) => item.id === id.id);
+    console.log(cart.map((item)=>item.id === id.id))
+    console.log(existingProduct)
+    if (existingProduct) {
+        // تحديث المنتج الموجود
+        const updatedCart = cart.map((item) =>
+            item.id === id.id
+                ? { ...item, count: item.count + 1, price: item.price + id.price }
+                : item
+        );
         setCart(updatedCart)
+        window.localStorage.setItem("product" , updatedCart)
     }else{
         setCart([...cart , {
         id : id.id,
         title : id.title,
         image : id.image,
         price : id.price,
+        count : 1 ,
     }]);
     }
     
@@ -48,6 +57,7 @@ function Products({setData, setCartnav, setRender, render, num , setNum, setCart
         title : id.title,
         image : id.image,
         price : id.price,
+        count : 1,
     }]))
    };
    useEffect(()=>{
@@ -82,6 +92,7 @@ function Products({setData, setCartnav, setRender, render, num , setNum, setCart
         setData(price === null ? "00.0" : price)
         // setCartnav(cart)
         setCart(cart)
+        
     })
 
     
@@ -92,12 +103,12 @@ function Products({setData, setCartnav, setRender, render, num , setNum, setCart
                 <Row>
                         
                             {loading && <div>loading ...</div>}
-                            {pro && pro.map((pro, indix)=><Col xs={6} md={4} lg={3} key={pro.id}>
+                            {pro && pro.map((pro, indix)=><Col xs={6} md={4} lg={3} key={`${pro.id}-${indix}`}>
                                     <div onClick={()=> setRender(!render)} className="link-product">
                                             <div className="parint">
                                                 <div className="a" onClick={()=>{indix && by(pro)}}  onMouseEnter={()=>spanShow(indix)} onMouseLeave={()=>spanHid(indix)}><FontAwesomeIcon icon={faBagShopping} size="2x"/></div> 
                                                 <span className={show === indix ? "span show-span" : "span"}>Add to Cart</span>
-                                                   <Link to={`/product/${pro.id}`}><img src={pro.image} alt={pro.title}/></Link>
+                                                 <Link to={`/product/${pro.id}`}><img src={pro.image} alt={pro.title}/></Link>
 
                                                 <div className="pro-caption">
                                                     <h4>{pro.title}</h4>
