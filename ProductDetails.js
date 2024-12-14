@@ -18,7 +18,6 @@ function ProductDetails({setCart, cart, setNum, num, setRender, render, setData}
 
     const Addpro = (pro)=>{
         setNum(num + count);
-        console.log(price)
         setRender(!render)
         // setProcount(count);
         // const Procount = 1;
