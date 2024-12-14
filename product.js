@@ -14,7 +14,7 @@ function Products({setData, setCartnav, setRender, render, num , setNum, setCart
     const [show , setshow] = useState(null);
     const [price, setPrice] = useState(null);
     const [local, setLocal] = useState([]);
-
+    const [itemprice, setItemPrice] = useState(null)
     const spanShow = useCallback((indix)=>{
           setshow(indix)
     }) 
@@ -24,34 +24,36 @@ function Products({setData, setCartnav, setRender, render, num , setNum, setCart
 
    const by = (id)=>{
 
-    setPrice(parseFloat((id.price + price).toFixed(2)));
+    // setPrice(parseFloat((itemprice + price).toFixed(2)));
     setNum(num + 1);
-    // التحقق مما إذا كان المنتج موجودًا في السلة
+
+    // Cheek for product find in cart
     const existingProduct = cart.find((item) => item.id === id.id);
-    console.log(cart.map((item)=>item.id === id.id))
-    console.log(existingProduct)
+    // console.log(cart.map((item)=>item.title === id.title))
+    // console.log(existingProduct)
+    
     if (existingProduct) {
-        // تحديث المنتج الموجود
-        const updatedCart = cart.map((item) =>
-            item.id === id.id
-                ? { ...item, count: item.count + 1, price: item.price + id.price }
+        setRender(!render)
+        // up data product
+        const updatedCart = cart.map((item) => item.id === id.id ?
+         { ...item, count: item.count + 1, price: item.price + id.price, setprice : setPrice(item.price + id.price) }
                 : item
         );
         setCart(updatedCart)
-        window.localStorage.setItem("product" , updatedCart)
+        window.localStorage.setItem("product" , JSON.stringify(updatedCart))
+        window.localStorage.setItem("price", JSON.stringify(parseFloat((price + id.price).toFixed(2))))
+        window.localStorage.setItem("num", JSON.stringify(num + 1))
     }else{
-        setCart([...cart , {
-        id : id.id,
-        title : id.title,
-        image : id.image,
-        price : id.price,
-        count : 1 ,
-    }]);
-    }
-    
-    window.localStorage.setItem("price", JSON.stringify(parseFloat((id.price + price).toFixed(2))))
-    window.localStorage.setItem("num", JSON.stringify(num + 1));
-    window.localStorage.setItem("product", JSON.stringify([...cart,
+            setCart([...cart , {
+            id : id.id,
+            title : id.title,
+            image : id.image,
+            price : id.price,
+            count : 1 ,
+        }]);
+        window.localStorage.setItem("price", JSON.stringify(parseFloat((id.price + price).toFixed(2))))
+         window.localStorage.setItem("num", JSON.stringify(num + 1));
+         window.localStorage.setItem("product", JSON.stringify([...cart,
         {
         id : id.id,
         title : id.title,
@@ -59,7 +61,8 @@ function Products({setData, setCartnav, setRender, render, num , setNum, setCart
         price : id.price,
         count : 1,
     }]))
-   };
+    }
+        };
    useEffect(()=>{
         const locaData = JSON.parse(window.localStorage.getItem("product"));
 
@@ -67,25 +70,27 @@ function Products({setData, setCartnav, setRender, render, num , setNum, setCart
         setPrice(JSON.parse(window.localStorage.getItem("price")));
         setNum(JSON.parse(window.localStorage.getItem("num")));
         setLocal(JSON.parse(window.localStorage.getItem("product")))
+        // setItemPrice(JSON.parse(window.localStorage.getItem("price")))
         // setCartnav(cart);
-
         setCart(local);
         }
         else {
                 setCart([])
                 setNum(0)
                 setPrice(null)
+                // setItemPrice(null)
                 window.localStorage.setItem("num", JSON.stringify(num));
                 window.localStorage.setItem("price", null)
             }
-        },[]);
+        },[render]);
 
 
     useEffect(()=>{
         setLocal(JSON.parse(window.localStorage.getItem("product")))
         setPrice(JSON.parse(window.localStorage.getItem("price")));
         setData((JSON.parse(window.localStorage.getItem("price"))));
-    },[])
+        // setItemPrice(JSON.parse(window.localStorage.getItem("price")))
+    },[render])
 
   
     useEffect(()=>{

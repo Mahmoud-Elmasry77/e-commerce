@@ -233,22 +233,21 @@
 }
 .cart-shop button{
   height: 30px;
+  font-size: 20px;
   border: none;
 }
 .show-cart{
   width: 40%;
+  padding: 0 10px;
 }
 .pro-nav{
-  padding: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: nowrap;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr auto;
   color: #000;
 }
 .pro-nav-caption {
-  display: flex;
-  flex-wrap: wrap;
+  
   width: 50%;
   padding: 10px;
 }
@@ -260,6 +259,10 @@
   width: 30%;
   height: 50px;
   display: inline;
+}
+.cart-shop .pro-nav .p-pro-nav{
+  font-size: 15px;
+  text-align: left;
 }
 .btn-showcart{
   display: block;

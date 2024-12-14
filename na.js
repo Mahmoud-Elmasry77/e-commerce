@@ -25,11 +25,12 @@ function Na({ data, nav, setNav, setRender, render, num, setNum, setCart, cart, 
   const Shcart = () => {
     if(showcart === true){
       setShowcart(false);
-      setNav(false);
-      setRender(!render);
+      setNav(true);
+      setRender(!render)
     }else{
       setShowcart(true)
-      setNav(false)
+      setNav(false);
+      setRender(!render)
     }
   };
 
@@ -114,17 +115,23 @@ function Na({ data, nav, setNav, setRender, render, num, setNum, setCart, cart, 
         </div>
       </div>
       <div className={showcart ? "cart-shop" : "cart-shop show-cart"}>
+
+          {/* end aside Nav*/ }
+        
+        {/* Start Cart Nav*/ }
         <div className='nav-cart'>
           <p className='p-cart'> Shopping Cart</p>
           <div onClick={Shcart} className='close-cart'><FontAwesomeIcon icon={faXmark} /></div>
         </div>
+
         
         {cart && cart.map((pro, indix) =>
           <div className='pro-nav' key={`${pro.id}-${indix}`}>
             <div className='pro-nav-caption'>
-              <img src={pro.image} alt={pro.title} />
+              <Link to={`/product/${pro.id}`} onClick={()=>Shcart()}><img src={pro.image} alt={pro.title} /></Link>
+              <span> × {pro.count}</span>
               <h4>{pro.title}</h4>
-              <p>${pro.price}</p>
+              <p className='p-pro-nav'>${pro.price}</p>
             </div>
             <button onClick={() => Claerpro(indix)}><FontAwesomeIcon icon={faXmark} /></button>
           </div>

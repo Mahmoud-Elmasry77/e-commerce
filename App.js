@@ -25,9 +25,9 @@ function App() {
   const [render, setRender] = useState(false);
   const [num, setNum] = useState(0);
   const [cart, setCart]= useState([])
-  const [block, setBlock] = useState(true)
+  const [none, setNone] = useState("none")
   window.onscroll = () => {
-    setBlock(false)
+    setNone(false)
     if (window.scrollY > 400) {
       setShowtop(false);
     } else {
@@ -75,7 +75,7 @@ function App() {
       ) : (
         <div className="App">
 
-          <div style={{display : block}}  className={showtop ? "top" : "top show-top"} onClick={sTop}>
+          <div style={{display : none}}  className={showtop ? "top" : "top show-top"} onClick={sTop}>
             <FontAwesomeIcon icon={faArrowUp} size="2x" />
           </div>
 
@@ -84,11 +84,11 @@ function App() {
             <Routes>
                 <Route path="/e-commerce" element={<Home setData={setData} setN={setN} setCartnav={setCartnav} setRender={setRender} render={render} num={num} setNum={setNum} setCart={setCart} cart={cart} />}/>
 
-                <Route path="/women" element={<Women setCart={setCart} cart={cart} setNum={setNum} num={num} setData={setData} setCartnav={setCartnav} render={render}/>}></Route>
+                <Route path="/women" element={<Women setCart={setCart} cart={cart} setNum={setNum} num={num} setData={setData} setCartnav={setCartnav} setRender={setRender} render={render}/>}></Route>
 
-                <Route path='/men' element={<Men setCart={setCart} cart={cart} setNum={setNum} num={num} setData={setData} setCartnav={setCartnav} render={render}/>}/>
+                <Route path='/men' element={<Men setCart={setCart} cart={cart} setNum={setNum} num={num} setData={setData} setCartnav={setCartnav} setRender={setRender} render={render}/>}/>
 
-                <Route path='/Acc' element={<Acc setCart={setCart} cart={cart} setNum={setNum} num={num} setData={setData} setCartnav={setCartnav} render={render}/>}/>
+                <Route path='/Acc' element={<Acc setCart={setCart} cart={cart} setNum={setNum} num={num} setData={setData} setCartnav={setCartnav} setRender={setRender} render={render}/>}/>
 
                 <Route path='/about' element={<About/>}/>
 

@@ -17,52 +17,68 @@ function ProductDetails({setCart, cart, setNum, num, setRender, render, setData}
     };
 
     const Addpro = (pro)=>{
-        setRender(!render);
+        setNum(num + count);
+        console.log(price)
+        setRender(!render)
         // setProcount(count);
-        const Procount = 1;
-        const countPrice = parseFloat(pro.price) * count;
-
-            if(count > 1){
-                setCart([...cart, {
-                    id : pro.id,
-                    title : pro.title,
-                    image : pro.image,
-                    price : pro.price * count,
-                    count : 1 * count,
-                }]);
-                
-                setPrice(parseFloat((countPrice + price).toFixed(2)))
-                setNum(count + num);
-                window.localStorage.setItem("num", JSON.stringify(num + count));
-                window.localStorage.setItem("price", JSON.stringify(parseFloat((countPrice + price).toFixed(2))));
-            }else{
-                setCart([...cart, {
-                    id : pro.id,
-                    title : pro.title,
-                    image : pro.image,
-                    price : pro.price,
-                    count : 1,
-                }]);
-
-                setPrice(parseFloat((pro.price + price).toFixed(2)));
-                setNum(num + 1);
-                window.localStorage.setItem("num", JSON.stringify(num + 1));
-                window.localStorage.setItem("price", JSON.stringify(parseFloat((pro.price + price).toFixed(2))));
-            }
-            window.localStorage.setItem("product", JSON.stringify([...cart, count > 1 ? {
-                    id : pro.id,
-                    title : pro.title,
-                    image : pro.image,
-                    price : pro.price * count,
-                    count : 1 * count,
-                }: {
-                    id : pro.id,
-                    title : pro.title,
-                    image : pro.image,
-                    price : pro.price ,
-                    count : 1 ,
+        // const Procount = 1;
+        const existingProduct = cart.find((item) => item.id === pro.id);
+        // const countPrice = parseFloat(pro.price) * count;
+        // console.log(cart.map((item)=>item.id === pro.id))
+            if(existingProduct){
+                if(count >= 1){
+                    setRender(!render)
+                    const updatedCart = cart.map((item)=> item.id === pro.id ? {...item , count : item.count + count, price : item.price + (pro.price* count), setprice : setPrice(item.price + (pro.price * count))} : item)
+                    setCart(updatedCart)
+                    window.localStorage.setItem("product" , JSON.stringify(updatedCart))
+                    window.localStorage.setItem("price", JSON.stringify(parseFloat(((pro.price * count)  + price).toFixed(2))))
+                    window.localStorage.setItem("num", JSON.stringify(num + count))
                 }
-            ])); 
+            }else{
+
+                if(count >= 1){
+                    setCart([...cart, {
+                        id : pro.id,
+                        title : pro.title,
+                        image : pro.image,
+                        price : pro.price * count,
+                        count : count,
+                    }]);
+                    
+                    setPrice(parseFloat((pro.price + price).toFixed(2)))
+                    setNum(count + num);
+                    window.localStorage.setItem("num", JSON.stringify(num + count));
+                    window.localStorage.setItem("price", JSON.stringify(parseFloat((pro.price + price).toFixed(2))));
+                    window.localStorage.setItem("product", JSON.stringify([...cart, {
+                        id : pro.id,
+                        title : pro.title,
+                        image : pro.image,
+                        price : pro.price * count,
+                        count : 1 * count,
+                    }]))
+
+                    }else{
+                    setCart([...cart, {
+                        id : pro.id,
+                        title : pro.title,
+                        image : pro.image,
+                        price : pro.price,
+                        count : 1,
+                    }]);
+    
+                    setPrice(parseFloat((pro.price + price).toFixed(2)));
+                    setNum(num + 1);
+                    window.localStorage.setItem("num", JSON.stringify(num + 1));
+                    window.localStorage.setItem("price", JSON.stringify(parseFloat((pro.price + price).toFixed(2))));
+                    window.localStorage.setItem("product", JSON.stringify([...cart, {
+                        id : pro.id,
+                        title : pro.title,
+                        image : pro.image,
+                        price : pro.price * count,
+                        count : 1,
+                    }]))
+                } 
+             }
     };
 
     useEffect(()=>{
@@ -100,7 +116,9 @@ function ProductDetails({setCart, cart, setNum, num, setRender, render, setData}
     return (
         <>
             {!product ? (
+                <Container>
                 <div className="loding-details">Loading...</div> 
+                </Container>
             ) : (
                 <Container>
                     <Row>
