@@ -12,6 +12,7 @@ import './App.css';
 import Acc from './Accessories/Acc';
 import About from './About/About';
 import ContactUs from './contact-Us/Contact-Us';
+import User from './User/User'
 import ShowCart from './show cart/show-cart';
 import ProductDetails from './ProductDetails';
 
@@ -94,11 +95,13 @@ function App() {
 
                 <Route path='/men' element={<Men setCart={setCart} cart={cart} setNum={setNum} num={num} setData={setData} setCartnav={setCartnav} setRender={setRender} render={render} setAddcart={setAddcart}/>}/>
 
-                <Route path='/Acc' element={<Acc setCart={setCart} cart={cart} setNum={setNum} num={num} setData={setData} setCartnav={setCartnav} setRender={setRender} render={render}/>} setAddcart={setAddcart}/>
+                <Route path='/Acc' element={<Acc setCart={setCart} cart={cart} setNum={setNum} num={num} setData={setData} setCartnav={setCartnav} setRender={setRender} render={render} setAddcart={setAddcart}/>}/>
 
                 <Route path='/about' element={<About/>}/>
 
                 <Route path='/contactus' element={<ContactUs/>}/>
+                
+                <Route path='/user' element={<User/>}/>
 
                 <Route path='/show-cart' element={<ShowCart cart={cart} setCart={setCart} num={num} setNum={setNum} setData={setData} data={data} setRender={setRender} render={render}/>}/>
 

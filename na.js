@@ -91,7 +91,7 @@ function Na({ data, nav, setNav, setRender, render, num, setNum, setCart, cart, 
               <div className='num'>{num}</div>
               <a onClick={Shcart} className="nav-link car"><FontAwesomeIcon icon={faCartShopping} /></a>
             </div>
-            <NavLink className="nav-link user" to='user'><FontAwesomeIcon icon={faUser} /></NavLink>
+            <NavLink onClick={()=>setNav(false)} className="nav-link user" to='user'><FontAwesomeIcon icon={faUser} /></NavLink>
           </div>
           <div onClick={saidebar} className='close-nav'>
           <FontAwesomeIcon icon={faBars} />
@@ -101,7 +101,7 @@ function Na({ data, nav, setNav, setRender, render, num, setNum, setCart, cart, 
       </Nav>
       <div>
         <div className={show ? "aside-link" : "show aside-link"}>
-          <NavLink className=" user" to='user'><FontAwesomeIcon icon={faUser} /></NavLink>
+          <NavLink onClick={()=>saidebar()}  className=" user" to='user'><FontAwesomeIcon icon={faUser} /></NavLink>
           <div className='mo-links'>
             <NavLink onClick={()=>saidebar()} className="xs-links" to="/e-commerce">EVERYTHING</NavLink>
             <NavLink onClick={()=>saidebar()} className="xs-links" to="/women">WOMEN</NavLink>
