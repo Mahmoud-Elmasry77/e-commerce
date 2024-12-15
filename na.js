@@ -36,18 +36,21 @@ function Na({ data, nav, setNav, setRender, render, num, setNum, setCart, cart, 
 
 
   const Claerpro = (indix) => {
+
     const updatedCart = [...cart];
+    // git indix product in cart
     const productToRemove = updatedCart[indix];
+
     updatedCart.splice(indix, 1);
 
     const newTotalPrice = pricecart - productToRemove.price;
 
     setCart(updatedCart);
     setpricecart(newTotalPrice);
-    setNum(num - 1);
-
+    setNum(num - productToRemove.count);
+    
     window.localStorage.setItem("product", JSON.stringify(updatedCart));
-    window.localStorage.setItem("num", JSON.stringify(num - 1));
+    window.localStorage.setItem("num", JSON.stringify(num - productToRemove.count));
     window.localStorage.setItem("price", JSON.stringify(parseFloat((newTotalPrice).toFixed(2))));
 
     

@@ -25,7 +25,8 @@ function App() {
   const [render, setRender] = useState(false);
   const [num, setNum] = useState(0);
   const [cart, setCart]= useState([])
-  const [none, setNone] = useState("none")
+  const [none, setNone] = useState("none");
+  const [addcart, setAddcart] = useState(true)
   window.onscroll = () => {
     setNone(false)
     if (window.scrollY > 400) {
@@ -68,13 +69,18 @@ function App() {
     }
   },[render]);
   
+  useEffect(()=>{
+    setTimeout(()=>{
+      setAddcart(true)
+    },1500)
+  },[addcart])
   return (
     <BrowserRouter>
       {loading ? (
         <div className="loader"></div>
       ) : (
         <div className="App">
-
+          <div className={addcart ? "add-cart" : "add-cart-active"}>Added product</div>
           <div style={{display : none}}  className={showtop ? "top" : "top show-top"} onClick={sTop}>
             <FontAwesomeIcon icon={faArrowUp} size="2x" />
           </div>
@@ -82,13 +88,13 @@ function App() {
           <Na data={data} n={n} setNav={setNav} nav={nav} cartnav={cartnav} setRender={setRender} render={render} num={num} setNum={setNum} setCart={setCart} cart={cart} />
 
             <Routes>
-                <Route path="/e-commerce" element={<Home setData={setData} setN={setN} setCartnav={setCartnav} setRender={setRender} render={render} num={num} setNum={setNum} setCart={setCart} cart={cart} />}/>
+                <Route path="/e-commerce" element={<Home setData={setData} setN={setN} setCartnav={setCartnav} setRender={setRender} render={render} num={num} setNum={setNum} setCart={setCart} cart={cart} setAddcart={setAddcart}/>}/>
 
-                <Route path="/women" element={<Women setCart={setCart} cart={cart} setNum={setNum} num={num} setData={setData} setCartnav={setCartnav} setRender={setRender} render={render}/>}></Route>
+                <Route path="/women" element={<Women setCart={setCart} cart={cart} setNum={setNum} num={num} setData={setData} setCartnav={setCartnav} setRender={setRender} render={render} setAddcart={setAddcart}/>}></Route>
 
-                <Route path='/men' element={<Men setCart={setCart} cart={cart} setNum={setNum} num={num} setData={setData} setCartnav={setCartnav} setRender={setRender} render={render}/>}/>
+                <Route path='/men' element={<Men setCart={setCart} cart={cart} setNum={setNum} num={num} setData={setData} setCartnav={setCartnav} setRender={setRender} render={render} setAddcart={setAddcart}/>}/>
 
-                <Route path='/Acc' element={<Acc setCart={setCart} cart={cart} setNum={setNum} num={num} setData={setData} setCartnav={setCartnav} setRender={setRender} render={render}/>}/>
+                <Route path='/Acc' element={<Acc setCart={setCart} cart={cart} setNum={setNum} num={num} setData={setData} setCartnav={setCartnav} setRender={setRender} render={render}/>} setAddcart={setAddcart}/>
 
                 <Route path='/about' element={<About/>}/>
 
@@ -96,7 +102,7 @@ function App() {
 
                 <Route path='/show-cart' element={<ShowCart cart={cart} setCart={setCart} num={num} setNum={setNum} setData={setData} data={data} setRender={setRender} render={render}/>}/>
 
-                <Route path='/product/:id' element={<ProductDetails setCart={setCart} cart={cart} setNum={setNum} num={num} setRender={setRender} render={render} setData={setData} data={data} setCartnav={setCartnav} />}/>
+                <Route path='/product/:id' element={<ProductDetails setCart={setCart} cart={cart} setNum={setNum} num={num} setRender={setRender} render={render} setData={setData} data={data} setCartnav={setCartnav} setAddcart={setAddcart}/>}/>
 
               <Route path="*" element={<Notfound />} />
             </Routes>

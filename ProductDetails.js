@@ -4,7 +4,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import axios from "axios";
 import "./productDetails.css";
 
-function ProductDetails({setCart, cart, setNum, num, setRender, render, setData}) {
+function ProductDetails({setCart, cart, setNum, num, setRender, render, setData, setAddcart}) {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
     const [price, setPrice] = useState(null);
@@ -18,7 +18,7 @@ function ProductDetails({setCart, cart, setNum, num, setRender, render, setData}
 
     const Addpro = (pro)=>{
         setNum(num + count);
-        setRender(!render)
+        setAddcart(false)
         // setProcount(count);
         // const Procount = 1;
         const existingProduct = cart.find((item) => item.id === pro.id);
@@ -36,49 +36,53 @@ function ProductDetails({setCart, cart, setNum, num, setRender, render, setData}
             }else{
 
                 if(count >= 1){
-                    setCart([...cart, {
-                        id : pro.id,
-                        title : pro.title,
-                        image : pro.image,
-                        price : pro.price * count,
-                        count : count,
-                    }]);
-                    
-                    setPrice(parseFloat((pro.price + price).toFixed(2)))
-                    setNum(count + num);
-                    window.localStorage.setItem("num", JSON.stringify(num + count));
-                    window.localStorage.setItem("price", JSON.stringify(parseFloat((pro.price + price).toFixed(2))));
-                    window.localStorage.setItem("product", JSON.stringify([...cart, {
-                        id : pro.id,
-                        title : pro.title,
-                        image : pro.image,
-                        price : pro.price * count,
-                        count : 1 * count,
-                    }]))
 
-                    }else{
-                    setCart([...cart, {
-                        id : pro.id,
-                        title : pro.title,
-                        image : pro.image,
-                        price : pro.price,
-                        count : 1,
-                    }]);
+                        setCart([...cart, {
+                            id : pro.id,
+                            title : pro.title,
+                            image : pro.image,
+                            price : pro.price * count,
+                            count : count,
+                        }]);
+                    
+                        setPrice(parseFloat(((pro.price*count) + price).toFixed(2)))
+                        setNum(count + num);
+                        window.localStorage.setItem("num", JSON.stringify(num + count));
+                        window.localStorage.setItem("price", JSON.stringify(parseFloat(((pro.price*count) + price).toFixed(2))));
+                        window.localStorage.setItem("product", JSON.stringify([...cart, {
+                            id : pro.id,
+                            title : pro.title,
+                            image : pro.image,
+                            price : pro.price * count,
+                            count : 1 * count,
+                        }]))
+
+                    }  else{
+
+                            setCart([...cart, {
+                                id : pro.id,
+                                title : pro.title,
+                                image : pro.image,
+                                price : pro.price,
+                                count : 1,
+                            }]);
     
-                    setPrice(parseFloat((pro.price + price).toFixed(2)));
-                    setNum(num + 1);
-                    window.localStorage.setItem("num", JSON.stringify(num + 1));
-                    window.localStorage.setItem("price", JSON.stringify(parseFloat((pro.price + price).toFixed(2))));
-                    window.localStorage.setItem("product", JSON.stringify([...cart, {
-                        id : pro.id,
-                        title : pro.title,
-                        image : pro.image,
-                        price : pro.price * count,
-                        count : 1,
-                    }]))
-                } 
-             }
-    };
+                            setPrice(parseFloat((pro.price + price).toFixed(2)));
+                            setNum(num + 1);
+                            window.localStorage.setItem("num", JSON.stringify(num + 1));
+                            window.localStorage.setItem("price", JSON.stringify(parseFloat((pro.price + price).toFixed(2))));
+                            window.localStorage.setItem("product", JSON.stringify([...cart, {
+                                id : pro.id,
+                                title : pro.title,
+                                image : pro.image,
+                                price : pro.price * count,
+                                count : 1,
+                            }]))
+
+                            } 
+                }
+             setRender(!render)
+     };
 
     useEffect(()=>{
         const locaData = JSON.parse(window.localStorage.getItem("product"));

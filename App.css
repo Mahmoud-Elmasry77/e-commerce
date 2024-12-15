@@ -102,3 +102,30 @@
 }
 
 
+.add-cart{
+  position: fixed;
+  bottom: -150px;
+  left:calc(50% - 80px);
+  background-color: #2b3988;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+  z-index: 99999;
+  transition: 1s;
+}
+
+.add-cart-active{
+  position: fixed;
+  bottom: 50px;
+  left:calc(50% - 80px);
+  background-color: #2b3988;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+  z-index: 99999;
+  transition: .5s;
+}

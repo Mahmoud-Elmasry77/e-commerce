@@ -8,14 +8,14 @@ import Slider from "./slider";
 import Featured from "./featured";
 import { Api } from "./useapi";
 
-function Home({setData, setN, setCartnav, setRender, render, num, setNum, cart, setCart}){
+function Home({setData, setN, setCartnav, setRender, render, num, setNum, cart, setCart,setAddcart}){
 
     return(
 
         <div>
             <Header/>
             <Slider/>
-            <Featured setData={setData} setN={setN} setCartnav = {setCartnav} setRender={setRender} render = {render} num = {num} setNum={setNum} setCart={setCart} cart={cart}/> 
+            <Featured setData={setData} setN={setN} setCartnav = {setCartnav} setRender={setRender} render = {render} num = {num} setNum={setNum} setCart={setCart} cart={cart} setAddcart={setAddcart}/> 
         </div>
     )
 }

@@ -9,7 +9,7 @@ import {  Link } from "react-router-dom";
 import "./product.css";
 import { Api } from "./useapi";
 
-function Products({setData, setCartnav, setRender, render, num , setNum, setCart, cart}){
+function Products({setData, setCartnav, setRender, render, num , setNum, setCart, cart, setAddcart}){
    const [pro, loading, err] = Api("https://fakestoreapi.com/products")
     const [show , setshow] = useState(null);
     const [price, setPrice] = useState(null);
@@ -26,7 +26,7 @@ function Products({setData, setCartnav, setRender, render, num , setNum, setCart
 
     // setPrice(parseFloat((itemprice + price).toFixed(2)));
     setNum(num + 1);
-
+    setAddcart(false)
     // Cheek for product find in cart
     const existingProduct = cart.find((item) => item.id === id.id);
     // console.log(cart.map((item)=>item.title === id.title))
