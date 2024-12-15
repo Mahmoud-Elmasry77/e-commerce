@@ -8,7 +8,7 @@ import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 import { faStar} from "@fortawesome/free-regular-svg-icons";
 import './Acc.css'
 
-function Acc({ setData, setCartnav, setNum, num, setCart, cart, render }) {
+function Acc({ setData, setCartnav, setNum, num, setCart, cart, render, setRender,setAddcart }) {
   const [accProducts, setAccProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -37,26 +37,44 @@ function Acc({ setData, setCartnav, setNum, num, setCart, cart, render }) {
 
   const by = (id)=>{
 
-    setPrice(parseFloat((id.price + price).toFixed(2)));
-
+    // setPrice(parseFloat((itemprice + price).toFixed(2)));
     setNum(num + 1);
-
-    setCart([...cart , {
-        id : id.id,
-        title : id.title,
-        image : id.image,
-        price : id.price,
-    }]);
+    setAddcart(false)
+    // Cheek for product find in cart
+    const existingProduct = cart.find((item) => item.id === id.id);
+    // console.log(cart.map((item)=>item.title === id.title))
+    // console.log(existingProduct)
     
-    window.localStorage.setItem("price", JSON.stringify(parseFloat((id.price + price).toFixed(2))))
-    window.localStorage.setItem("num", JSON.stringify(num + 1));
-    window.localStorage.setItem("product", JSON.stringify([...cart,
+    if (existingProduct) {
+        setRender(!render)
+        // up date product
+        const updatedCart = cart.map((item) => item.id === id.id ?
+         { ...item, count: item.count + 1, price: item.price + id.price, setprice : setPrice(parseFloat((item.price + id.price).toFixed(2))) }
+                : item
+        );
+        setCart(updatedCart)
+        window.localStorage.setItem("product" , JSON.stringify(updatedCart))
+        window.localStorage.setItem("price", JSON.stringify(parseFloat((price + id.price).toFixed(2))))
+        window.localStorage.setItem("num", JSON.stringify(num + 1))
+    }else{
+            setCart([...cart , {
+            id : id.id,
+            title : id.title,
+            image : id.image,
+            price : id.price,
+            count : 1 ,
+        }]);
+        window.localStorage.setItem("price", JSON.stringify(parseFloat((id.price + price).toFixed(2))))
+         window.localStorage.setItem("num", JSON.stringify(num + 1));
+         window.localStorage.setItem("product", JSON.stringify([...cart,
         {
         id : id.id,
         title : id.title,
         image : id.image,
         price : id.price,
+        count : 1,
     }]))
+    }
    };
 
    useEffect(()=>{
@@ -87,7 +105,7 @@ if(locaData && locaData.length >=1){
 
    useEffect(()=>{
     setData(price === null ? "00.0" : price)
-    setCartnav(cart)
+    setCart(cart)
   });
 
 
@@ -107,12 +125,12 @@ if(locaData && locaData.length >=1){
         {loading && <div>Loading...</div>}
         {error && <div>Error: {error}</div>}
         {accProducts && accProducts.map((product, indix) => (
-          <Col xs={6} md={4} lg={3} key={product.id}>
-                <div className="link-product-acc">
+          <Col xs={6} md={4} lg={3} key={`${product.id}-${indix}`}>
+                <div  className="link-product-acc">
                     <div className='parint'>
-                    <Link onClick={()=>{indix && by(product)}}  onMouseEnter={()=>spanShow(indix)} onMouseLeave={()=>spanHid(indix)}><FontAwesomeIcon icon={faBagShopping} size="2x"/></Link> 
+                    <div className='a' onClick={()=>{indix && by(product)}}  onMouseEnter={()=>spanShow(indix)} onMouseLeave={()=>spanHid(indix)}><FontAwesomeIcon icon={faBagShopping} size="2x"/></div> 
                     <span className={show === indix ? "span show-span" : "span"}>Add to Cart</span>
-                        <img src={product.image} alt={product.title} />
+                        <Link to={`/product/${product.id}`}> <img src={product.image} alt={product.title} /></Link>
 
                             <div className="pro-caption">
                                     <h4>{product.title}</h4>
