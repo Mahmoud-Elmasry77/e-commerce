@@ -15,6 +15,7 @@ import ContactUs from './contact-Us/Contact-Us';
 import User from './User/User'
 import ShowCart from './show cart/show-cart';
 import ProductDetails from './ProductDetails';
+import Order from './orders/order'
 
 function App() {
   const [showtop, setShowtop] = useState(false);
@@ -28,6 +29,7 @@ function App() {
   const [cart, setCart]= useState([])
   const [none, setNone] = useState("none");
   const [addcart, setAddcart] = useState(true)
+  const [addorder, setAddorder] = useState(true)
   window.onscroll = () => {
     setNone(false)
     if (window.scrollY > 400) {
@@ -75,13 +77,21 @@ function App() {
       setAddcart(true)
     },1500)
   },[addcart])
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      setAddorder(true)
+    },1500)
+  },[addorder])
+
   return (
     <BrowserRouter>
       {loading ? (
         <div className="loader"></div>
       ) : (
         <div className="App">
-          <div className={addcart ? "add-cart" : "add-cart-active"}>Added product</div>
+          <div className={addcart ? "add-cart" : "add-cart-active"}>Product It Add</div>
+          <div className={addorder ? "order-out" : "order-out-active"}>Your request is being processed.</div>
           <div style={{display : none}}  className={showtop ? "top" : "top show-top"} onClick={sTop}>
             <FontAwesomeIcon icon={faArrowUp} size="2x" />
           </div>
@@ -106,6 +116,8 @@ function App() {
                 <Route path='/show-cart' element={<ShowCart cart={cart} setCart={setCart} num={num} setNum={setNum} setData={setData} data={data} setRender={setRender} render={render}/>}/>
 
                 <Route path='/product/:id' element={<ProductDetails setCart={setCart} cart={cart} setNum={setNum} num={num} setRender={setRender} render={render} setData={setData} data={data} setCartnav={setCartnav} setAddcart={setAddcart}/>}/>
+
+                <Route path='/order' element={<Order setCart={setCart} setData={setData} setNum={setNum} setRender={setRender} render={render} setAddorder={setAddorder}/>}/>
 
               <Route path="*" element={<Notfound />} />
             </Routes>

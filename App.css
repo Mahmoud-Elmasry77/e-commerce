@@ -129,3 +129,23 @@
   z-index: 99999;
   transition: .5s;
 }
+
+.order-out{
+  display: none;
+}
+
+.order-out-active{
+  position: fixed;
+  bottom: 50%;
+  width: 400px;
+  padding: 50px 0;
+  left:calc(50% - 200px);
+  background-color: #2b3988;
+  border-radius: 5px;
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+  z-index: 99999;
+  transition: 1s;
+  display: block;
+}
