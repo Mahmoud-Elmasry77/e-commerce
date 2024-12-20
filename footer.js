@@ -9,7 +9,7 @@ import axios from "axios";
 
 function Footer(){
     const [email, setEmail] = useState("");
-    const [valid , setValid] = useState(true);
+    const [valid , setValid] = useState();
     const validEmail = (email)=>{
         const reg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return reg.test(email);
@@ -27,10 +27,11 @@ function Footer(){
         e.preventDefault();
         if(valid && email){
             setEmail("")
+            setValid("")
            return true
         }else{
             setEmail(e.target.value)
-            setValid(false)
+            setValid("p")
             return false
         }
     }
@@ -95,8 +96,8 @@ function Footer(){
                         <div className="form" >
                             <form action="1.php"  method="get" onSubmit={submit}>
                             <label>Subscribe</label>
-                            <input  value={email} onChange={chang}  type="text" placeholder="Your email address..." className={!valid && "valid"}></input>
-                                <p  className={!valid ? "p" : ""}>email not valid</p>
+                            <input  value={email} onChange={chang}  type="text" placeholder="Your email address..." className={!valid ? "" : "valid"}></input>
+                                <p  className={!valid ?"": "p" }>email not valid</p>
                             <input type="submit" className="p-3" value="subscribe" ></input>
                             </form>
                         </div>
