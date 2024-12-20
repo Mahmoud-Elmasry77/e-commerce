@@ -32,13 +32,13 @@ function Men({ setData, setCartnav, setNum, num, setCart, cart, render, setRende
         setLoading(false);
       })
       .catch(error => {
-        setError(error.message);
+        setError("check conation internet");
         setLoading(false);
       });
   }, []);
 
   const by = (id)=>{
-
+  
     // setPrice(parseFloat((itemprice + price).toFixed(2)));
     setNum(num + 1);
     setAddcart(false)
@@ -51,7 +51,7 @@ function Men({ setData, setCartnav, setNum, num, setCart, cart, render, setRende
         setRender(!render)
         // up date product
         const updatedCart = cart.map((item) => item.id === id.id ?
-         { ...item, count: item.count + 1, price: item.price + id.price, setprice : setPrice(parseFloat((item.price + id.price).toFixed(2))) }
+         { ...item, count: item.count + 1, price: parseFloat((item.price + id.price).toFixed(2)), setprice : setPrice(parseFloat((item.price + id.price).toFixed(2))) }
                 : item
         );
         setCart(updatedCart)
@@ -77,6 +77,7 @@ function Men({ setData, setCartnav, setNum, num, setCart, cart, render, setRende
         count : 1,
     }]))
     }
+    setRender(!render)
    };
 
  useEffect(()=>{

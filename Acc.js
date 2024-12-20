@@ -30,7 +30,7 @@ function Acc({ setData, setCartnav, setNum, num, setCart, cart, render, setRende
         setLoading(false);
       })
       .catch(error => {
-        setError(error.message);
+        setError("check conation internet");
         setLoading(false);
       });
   }, []);
@@ -49,7 +49,7 @@ function Acc({ setData, setCartnav, setNum, num, setCart, cart, render, setRende
         setRender(!render)
         // up date product
         const updatedCart = cart.map((item) => item.id === id.id ?
-         { ...item, count: item.count + 1, price: item.price + id.price, setprice : setPrice(parseFloat((item.price + id.price).toFixed(2))) }
+         { ...item, count: item.count + 1, price: parseFloat((item.price + id.price).toFixed(2)), setprice : setPrice(parseFloat((item.price + id.price).toFixed(2))) }
                 : item
         );
         setCart(updatedCart)
@@ -75,6 +75,7 @@ function Acc({ setData, setCartnav, setNum, num, setCart, cart, render, setRende
         count : 1,
     }]))
     }
+    setRender(!render)
    };
 
    useEffect(()=>{
