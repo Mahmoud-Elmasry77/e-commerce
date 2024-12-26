@@ -32,13 +32,13 @@ function Products({setData, setCartnav, setRender, render, num , setNum, setCart
     const existingProduct = cart.find((item) => item.id === id.id);
     // console.log(cart.map((item)=>item.title === id.title))
     // console.log(existingProduct)
-        //     Swal.fire({
-        // position: "top-center",
-        // icon: "success",
-        // title: "Your work has been saved",
-        // showConfirmButton: false,
-        // timer: 1500
-        // });
+            Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: "Your work has been saved",
+        showConfirmButton: false,
+        timer: 1500
+        });
     if (existingProduct) {
         setRender(!render)
         // up data product

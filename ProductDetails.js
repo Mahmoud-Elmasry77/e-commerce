@@ -23,7 +23,7 @@ function ProductDetails({setCart, cart, setNum, num, setRender, render, setData,
         // setProcount(count);
         // const Procount = 1;
         Swal.fire({
-                    position: "top-end",
+                    position: "top-center",
                     icon: "success",
                     title: "Your work has been saved",
                     showConfirmButton: false,
