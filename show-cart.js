@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
-import { Container, Table, Button } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './showCart.css'; 
+import { Link } from 'react-router-dom';
 
 function ShowCart({ cart, setCart, num, setData, data, setNum, setRender, render }) {
 
-
   const removeFromCart = (index) => {
+    
     const updatedCart = [...cart];
     const productToRemove = updatedCart[index];
     updatedCart.splice(index, 1);
@@ -16,7 +17,7 @@ function ShowCart({ cart, setCart, num, setData, data, setNum, setRender, render
     setData(parseFloat(newTotalPrice.toFixed(2)))
     window.localStorage.setItem("price", JSON.stringify(parseFloat(newTotalPrice.toFixed(2))))
     window.localStorage.setItem('product', JSON.stringify(updatedCart));
-    window.localStorage.setItem('num', JSON.stringify(num - 1))
+    window.localStorage.setItem('num', JSON.stringify(num - productToRemove.count))
   };
   
   useEffect(() => {
@@ -37,50 +38,60 @@ function ShowCart({ cart, setCart, num, setData, data, setNum, setRender, render
   return (
     <div className="show-cart-page">
       <Container>
+        <Row>
         <h1 className="text-center mb-4 h1-show-cart-page">Shopping Cart</h1>
         {cart.length === 0 ? (
           <p className="text-center">Your cart is empty</p>
         ) : (
-          <div className="table-container">
-            <table>
-              <thead>
-                <tr>
-                  <th>Product</th>
-                  <th>Price</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {cart.map((product, index) => (
-                  <tr key={index}>
-                    <td>
-                      <div className="product-info">
-                        <img src={product.image} alt={product.title} className="product-image" />
-                        <span className="product-title">{product.title}</span>
-                      </div>
-                    </td>
-                    <td>${parseFloat(product.price).toFixed(2)}</td>
-                  
-                    <td>
-                      <button  onClick={() => removeFromCart(index)} className="btn-remove"> Remove</button>
-                      
-                    </td>
-                  </tr>
-                ))}
+          <Col xs={12}>
+                <div className="table-container">
+                  <table className='table table-striped'>
+                    <thead>
+                      <tr>
+                        <th>Product</th>
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>count</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {cart.map((product, index) => (
+                        <tr key={`${product.id}-${index}`}>
+                          <td>
+                            <Link to={`/product/${product.id}`} className="product-info">
+                              <img src={product.image} alt={product.title} className="product-image" />
+                              
+                            </Link>
+                          </td>
+                          <td>
+                              <h3 className="product-title mt-4">{product.title}</h3>
+                          </td>
 
-              </tbody>
-            </table>
-            <div className="checkout-container text-center">
-                <p className='p-total-show-cart'>Total ${data.toFixed(2)}</p>
-              <button 
-                onClick={() => alert('Proceed to checkout')} 
-                className="btn-checkout"
-              >
-                Checkout
-              </button>
-            </div>
-          </div>
+                          <td>
+                            <p className='mt-4'>${parseFloat(product.price).toFixed(2)}</p>
+                            </td>
+                          <td> 
+                            <p className='mt-4'>×{product.count} </p>
+                          </td>
+                          <td>
+                            <button onClick={() => removeFromCart(index)} className="btn-remove mt-4"> Remove</button>
+                          </td>
+                        </tr>
+                      ))}
+
+                    </tbody>
+                  </table>
+                  <div className="checkout-container text-center">
+                      <p className='p-total-show-cart'>Total ${data}</p>
+                    <Link to={'/order'} className="btn-checkout">
+                      Checkout
+                    </Link>
+                  </div>
+                </div>
+          </Col>
         )}
+        </Row>
       </Container>
     </div>
   );
