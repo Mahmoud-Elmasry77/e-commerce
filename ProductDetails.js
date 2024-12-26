@@ -19,6 +19,7 @@ function ProductDetails({setCart, cart, setNum, num, setRender, render, setData,
     const Addpro = (pro)=>{
         setNum(num + count);
         setAddcart(false)
+        
         // setProcount(count);
         // const Procount = 1;
         const existingProduct = cart.find((item) => item.id === pro.id);
@@ -120,12 +121,13 @@ function ProductDetails({setCart, cart, setNum, num, setRender, render, setData,
         <>
             {!product ? (
                 <Container>
-                <div className="loding-details">Loading...</div> 
+                 <div className="loding-details"></div> 
                 </Container>
             ) : (
                 <Container>
                     <Row>
                         <Col xs={12}>
+                        
                         <div className="product-details">
                                 <img className="product-details" src={product.image} alt={product.title} />
                                 <h2 className="h2-product-detalis">{product.title}</h2>

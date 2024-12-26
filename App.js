@@ -52,7 +52,9 @@ function App() {
     }, 3000);
     return () => clearTimeout(timer);
   }, []);
-
+  // window.onload = ()=>{
+  //    setLoading(false)
+  // }
   
   useEffect(()=>{
     if(window.location.pathname === "/e-commerce" || window.location.pathname === "/about" || window.location.pathname === "/contactus"){
@@ -83,13 +85,14 @@ function App() {
       setAddorder(true)
     },1500)
   },[addorder])
-
+   
   return (
     <BrowserRouter>
       {loading ? (
         <div className="loader"></div>
       ) : (
         <div className="App">
+          {/* <div className="loader"></div> */}
           <div className={addcart ? "add-cart" : "add-cart-active"}>Product It Add</div>
           <div className={addorder ? "order-out" : "order-out-active"}>Your request is being processed.</div>
           <div style={{display : none}}  className={showtop ? "top" : "top show-top"} onClick={sTop}>

@@ -107,7 +107,7 @@ function Products({setData, setCartnav, setRender, render, num , setNum, setCart
             <Container>
                 <Row>
                         
-                            {loading && <div>loading ...</div>}
+                            {loading && <div className="loding-details"></div>}
                             {pro && pro.map((pro, indix)=><Col xs={6} md={4} lg={3} key={`${pro.id}-${indix}`}>
                                     <div onClick={()=> setRender(!render)} className="link-product">
                                             <div className="parint">

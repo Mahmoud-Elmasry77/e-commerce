@@ -98,3 +98,14 @@
       font-size: 15px;
     }
   }
+
+.loding-details {
+  margin: 150px auto;
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid #28a9ff;
+  border-right-color: #3247bd;
+  animation: l2 1s infinite linear;
+}
+@keyframes l2 {to{transform: rotate(1turn)}}
