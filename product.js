@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {  Link } from "react-router-dom";
 import "./product.css";
 import { Api } from "./useapi";
-
+import Swal from "sweetalert2";
 function Products({setData, setCartnav, setRender, render, num , setNum, setCart, cart, setAddcart}){
    const [pro, loading, err] = Api("https://fakestoreapi.com/products")
     const [show , setshow] = useState(null);
@@ -24,6 +24,7 @@ function Products({setData, setCartnav, setRender, render, num , setNum, setCart
 
    const by = (id)=>{
 
+
     // setPrice(parseFloat((itemprice + price).toFixed(2)));
     setNum(num + 1);
     setAddcart(false)
@@ -31,7 +32,13 @@ function Products({setData, setCartnav, setRender, render, num , setNum, setCart
     const existingProduct = cart.find((item) => item.id === id.id);
     // console.log(cart.map((item)=>item.title === id.title))
     // console.log(existingProduct)
-    
+        //     Swal.fire({
+        // position: "top-center",
+        // icon: "success",
+        // title: "Your work has been saved",
+        // showConfirmButton: false,
+        // timer: 1500
+        // });
     if (existingProduct) {
         setRender(!render)
         // up data product

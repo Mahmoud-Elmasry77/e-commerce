@@ -37,6 +37,8 @@ function Na({ data, nav, setNav, setRender, render, num, setNum, setCart, cart, 
 
   const Claerpro = (indix) => {
 
+  
+
     const updatedCart = [...cart];
     // git indix product in cart
     const productToRemove = updatedCart[indix];

@@ -16,7 +16,7 @@ import User from './User/User'
 import ShowCart from './show cart/show-cart';
 import ProductDetails from './ProductDetails';
 import Order from './orders/order'
-
+import Swal from 'sweetalert2';
 function App() {
   const [showtop, setShowtop] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -74,11 +74,15 @@ function App() {
     }
   },[render]);
   
-  useEffect(()=>{
-    setTimeout(()=>{
-      setAddcart(true)
-    },1500)
-  },[addcart])
+  // useEffect(()=>{
+  //   Swal.fire({
+  //     position: "top-center",
+  //     icon: "success",
+  //     title: "Your work has been saved",
+  //     showConfirmButton: false,
+  //     timer: 1500
+  //     });
+  // },[addcart])
 
   useEffect(()=>{
     setTimeout(()=>{
@@ -93,7 +97,7 @@ function App() {
       ) : (
         <div className="App">
           {/* <div className="loader"></div> */}
-          <div className={addcart ? "add-cart" : "add-cart-active"}>Product It Add</div>
+          {/* <div className={addcart ? "add-cart" : "add-cart-active"}>Product It Add</div> */}
           <div className={addorder ? "order-out" : "order-out-active"}>Your request is being processed.</div>
           <div style={{display : none}}  className={showtop ? "top" : "top show-top"} onClick={sTop}>
             <FontAwesomeIcon icon={faArrowUp} size="2x" />

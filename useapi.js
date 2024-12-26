@@ -12,7 +12,7 @@ export const Api = (url)=>{
             setPro(pro.data)
         
         }).catch(error => {
-            setErr(error.message);
+            setErr("Cheek Your Network");
             setLoading(false);
           });
     },[url])

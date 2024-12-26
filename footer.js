@@ -15,22 +15,29 @@ function Footer(){
         return reg.test(email);
                 }
     const chang = (e)=>{ 
-        // if(e.target.value === ""){
-        //     setEmail("")
-        //     setValid(valid)
-        // }else{
-        // setEmail(e.target.value);
-        // setValid(validEmail(e.target.value))
-        // }
-        setEmail(e.target.value)
+        if(e.target.value === ""){
+            setEmail("")
+            setValid(true)
+        }else{
+        setEmail(e.target.value);
         setValid(validEmail(e.target.value))
+        }
+        // setEmail(e.target.value)
+        // setValid(validEmail(e.target.value))
 
+    }
 
+    const blur = ()=>{
+        if(email === "" && valid === false){
+            setEmail("")
+            setValid(true)
+        }
     }
     const submit = (e)=>{
         e.preventDefault();
         if(valid && email){
                 setEmail("")
+                setValid(true)
         }else{
             setEmail(email)
             setValid(false)
@@ -97,7 +104,7 @@ function Footer(){
                         <div className="form" >
                             <form action="1.php"  method="get" onSubmit={submit}>
                             <label>Subscribe</label>
-                            <input  value={email} onChange={chang}  type="text" placeholder="Your email address..." className={valid ? " " : "valid"} onBlur={()=> email === ""? setValid(true): setValid(false)}></input>
+                            <input  value={email} onChange={chang}  type="text" placeholder="Your email address..." className={valid ? " " : "valid"} onBlur={blur}></input>
                                 <p  className={valid ? " " : "p"}>Email Not Valid</p>
                             <input type="submit" className="p-3" value="subscribe" ></input>
                             </form>
